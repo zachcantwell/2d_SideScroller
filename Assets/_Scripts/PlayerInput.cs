@@ -40,6 +40,14 @@ public class PlayerInput : PlayerData
         get; set;
     }
 
+    public float _GetHorizontalAxisValue
+    {
+        get; private set; 
+    }
+    public float _GetVerticalAxisValue
+    {
+        get; private set; 
+    }
     public static PlayerInput _InputInstance
     {
         get; private set; 
@@ -67,7 +75,7 @@ public class PlayerInput : PlayerData
 
         if(_WasInputInitialized == null)
         {
-             Initialize();
+             InitializeInput();
         }
     }
 
@@ -92,6 +100,9 @@ public class PlayerInput : PlayerData
         _IsPlayerGrabbing = IsPlayerGrabbing();
         _IsPlayerWallSliding = IsPlayerWallSliding();
 
+        _GetHorizontalAxisValue = CrossPlatformInputManager.GetAxis("Horizontal");
+        _GetVerticalAxisValue = CrossPlatformInputManager.GetAxis("Vertical");
+        
 		 if((_IsPlayerRunning || _IsPlayerJumping) && !_IsPlayerSwinging)
         {
             _WasDirectionChanged = HasChangedDirection();

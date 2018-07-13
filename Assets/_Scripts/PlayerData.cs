@@ -54,7 +54,6 @@ public class PlayerData : MonoBehaviour
         get; private set;
     }
 
-
     //Horizontal Raycasts
     public RaycastHit2D _HorizontalWallRaycast
     {
@@ -96,6 +95,10 @@ public class PlayerData : MonoBehaviour
         get; private set;
     }
 
+    public Vector2 _LastGroundedPosition
+    {
+        get; private set; 
+    }
     public float _DefaultGravityScale
     {
         get; private set; 
@@ -159,6 +162,7 @@ public class PlayerData : MonoBehaviour
 
     public void Initialize()
     {
+        _LastGroundedPosition = Vector2.zero; 
         _LastPlayerPosition = Vector2.zero;
         _RigidBody = GetComponent<Rigidbody2D>();
         _DefaultDrag = _RigidBody.drag;
@@ -216,8 +220,12 @@ public class PlayerData : MonoBehaviour
 
         _IsHorizontalToSomething = IsPlayerHorizontalToSomething();
         _IsAboveSomething = IsPlayerAboveSomething();
-        Debug.Log("IsHorizontal = " + _IsHorizontalToSomething + _IsAboveSomething + " = IsaBoveSomething");
 
+        if(_IsAboveSomething)
+        {
+            _LastGroundedPosition = transform.position;
+        }
+        Debug.LogWarning(_IsAboveSomething + " isAboveSomething from PlayerData");
         _LastPlayerPosition = transform.position;
     }
 
@@ -225,7 +233,6 @@ public class PlayerData : MonoBehaviour
     {
         if (_SpriteRenderer.flipX == true)
         {
-            Debug.Log("Checking left of player");
             bool left = CheckLeftOfPlayer();
 
             if (left == true)
@@ -235,7 +242,6 @@ public class PlayerData : MonoBehaviour
         }
         else if (_SpriteRenderer.flipX == false)
         {
-            Debug.Log("Checking right of player");
             bool right = CheckRightOfPlayer();
 
             if (right == true)
@@ -248,6 +254,8 @@ public class PlayerData : MonoBehaviour
 
     public bool IsPlayerAboveSomething()
     {
+        // Only checking if the player is above the ground, corner or object. 
+        // Not interested in being above a wall, it doesnt make sense. 
         if (CheckBelowCenterOfPlayer() || CheckBelowLeftOfPlayer() || CheckBelowRightOfPlayer())
         {
             return true;
@@ -389,18 +397,7 @@ public class PlayerData : MonoBehaviour
             {
                 if (rayCenter.collider)
                 {
-                    Debug.Log(rayCenter.collider.gameObject.tag + " WAS HIT");
-
-                    if (rayCenter.collider.gameObject.tag == "Wall")
-                    {
-                        if (rayCenter.distance < _downDistanceOfRaycast)
-                        {
-                            Debug.Log("Above Wall hit");
-                            _AboveWallRaycast = rayCenter;
-                            _IsAboveWall = true;
-                        }
-                    }
-                    else if (rayCenter.collider.gameObject.tag == "Grabbable")
+                    if (rayCenter.collider.gameObject.tag == "Grabbable")
                     {
                         if (rayCenter.distance < _downDistanceOfRaycast)
                         {
@@ -429,7 +426,7 @@ public class PlayerData : MonoBehaviour
                     }
                 }
             }
-            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject || _IsAboveWall)
+            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject)
             {
                 return true;
             }
@@ -451,16 +448,7 @@ public class PlayerData : MonoBehaviour
             {
                 if (rayRight.collider)
                 {
-                    if (rayRight.collider.gameObject.tag == "Wall")
-                    {
-                        if (rayRight.distance < _downDistanceOfRaycast)
-                        {
-                            Debug.Log("Above Wall hit");
-                            _AboveWallRaycast = rayRight;
-                            _IsAboveWall = true;
-                        }
-                    }
-                    else if (rayRight.collider.gameObject.tag == "Grabbable")
+                    if (rayRight.collider.gameObject.tag == "Grabbable")
                     {
                         if (rayRight.distance < _downDistanceOfRaycast)
                         {
@@ -489,7 +477,7 @@ public class PlayerData : MonoBehaviour
                     }
                 }
             }
-            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject || _IsAboveWall)
+            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject)
             {
                 return true;
             }
@@ -512,16 +500,7 @@ public class PlayerData : MonoBehaviour
             {
                 if (rayLeft.collider)
                 {
-                    if (rayLeft.collider.gameObject.tag == "Wall")
-                    {
-                        if (rayLeft.distance < _downDistanceOfRaycast)
-                        {
-                            Debug.Log("Above Wall hit");
-                            _AboveWallRaycast = rayLeft;
-                            _IsAboveWall = true;
-                        }
-                    }
-                    else if (rayLeft.collider.gameObject.tag == "Grabbable")
+                     if (rayLeft.collider.gameObject.tag == "Grabbable")
                     {
                         if (rayLeft.distance < _downDistanceOfRaycast)
                         {
@@ -551,13 +530,11 @@ public class PlayerData : MonoBehaviour
                     }
                 }
             }
-            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject || _IsAboveWall)
+            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject)
             {
                 return true;
             }
         }
         return false;
     }
-
-
 }

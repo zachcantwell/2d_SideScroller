@@ -18,18 +18,17 @@ public class PlayerMovement : PlayerInput
     [SerializeField]
     private Vector2 _wallJumpSpd = new Vector2(15f, 10f);
 
-    private float _doubleJumpTimer = 0f;
-    private const float _doubleJumpTimerOffset = 0.165f;
-
-    private float _ignoreHorizontalInputTimer = 0f;
-    private const float _ignoreHorizontalInputOffset = 0.45f;
-
-    private const float _airXOffset = 0.85f;
-
     public int _doubleJumpCounter
     {
         get; set;
     }
+
+    private float _doubleJumpTimer = 0f;
+    private float _ignoreHorizontalInputTimer = 0f;
+    private const float _ignoreHorizontalInputOffset = 0.45f;
+    private const float _doubleJumpTimerOffset = 0.165f;
+    private const float _airXOffset = 0.85f;
+
     // Use this for initialization
     void Awake()
     {
@@ -122,15 +121,20 @@ public class PlayerMovement : PlayerInput
 
     private void Jump()
     {
-        if (PlayerData._DataInstance._IsAboveSomething)
+        Debug.LogWarning(_doubleJumpCounter + " = doubleJumpCounter");
+        if (_DataInstance._IsAboveSomething)
         {
             _doubleJumpCounter = 0;
+        }
+        else
+        {
+            Debug.LogWarning(_DataInstance._IsAboveSomething + " == isAboveSomething");
         }
         if (_doubleJumpCounter == 0)
         {
             _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
             _doubleJumpCounter++;
-            _RigidBody.AddForce(new Vector2(0f, _defaultJumpSpeed), ForceMode2D.Impulse);
+            _DataInstance._RigidBody.AddForce(new Vector2(0f, _defaultJumpSpeed), ForceMode2D.Impulse);
         }
         else if (Time.timeSinceLevelLoad > _doubleJumpTimer)
         {
@@ -142,7 +146,7 @@ public class PlayerMovement : PlayerInput
             else if (_doubleJumpCounter == 1)
             {
                 _doubleJumpCounter++;
-                _RigidBody.AddForce(new Vector2(0f, _doubleJumpStrength), ForceMode2D.Impulse);
+                _DataInstance._RigidBody.AddForce(new Vector2(0f, _doubleJumpStrength), ForceMode2D.Impulse);
             }
         }
     }
@@ -154,8 +158,7 @@ public class PlayerMovement : PlayerInput
         {
             _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
             Vector2 vel = new Vector2(_wallJumpSpd.x * hit.normal.x, _wallJumpSpd.y);
-            _RigidBody.velocity = new Vector2(0f, _RigidBody.velocity.y);
-            _RigidBody.AddForce(vel, ForceMode2D.Impulse);
+            _RigidBody.velocity = vel; 
 
             //This will keep the player from running and jumping right away
             _ignoreHorizontalInputTimer = Time.timeSinceLevelLoad + _ignoreHorizontalInputOffset;

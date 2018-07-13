@@ -258,8 +258,6 @@ public class PlayerGrab : PlayerInput
         }
     }
 
-
-
     private void InitializeGrab()
     {
         if (base._WasInitialized == null)
