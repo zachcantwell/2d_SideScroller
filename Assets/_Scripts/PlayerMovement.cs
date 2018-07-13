@@ -1,235 +1,177 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
-[DisallowMultipleComponent]
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CapsuleCollider2D))]
-[RequireComponent(typeof(SpriteRenderer))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : PlayerInput
 {
-
     [SerializeField]
-    private float _maxSpeed = 6f;
+    private float _runMultiplier = 10f;
     [SerializeField]
-    private float _jumpPower = 20f;
+    private float _fallMultiplier = 10f;
     [SerializeField]
-    private float _jumpMultiplier = 20f;
+    private float _defaultJumpSpeed = 10f;
     [SerializeField]
-    private float _jumpOffset = 1f;
-	[SerializeField]
-	private float _doubleJumpStrength = 0.8f;
-    private float _defaultJumpMultiplier;
-    private float _defaultJumpOffset;
-    private float _currentSpeed = 0f;
+    private float _doubleJumpStrength = 8f;
+    [SerializeField]
+    private float _distanceToWallLengthCheck = 0.15f;
+    [SerializeField]
+    private Vector2 _wallJumpSpd = new Vector2(15f, 10f);
 
-    private bool _isJumping;
-    private bool _isHoldingJumpButton;
-    private bool _isDoubleJumpReady;
+    private float _doubleJumpTimer = 0f;
+    private const float _doubleJumpTimerOffset = 0.165f;
 
-    private Rigidbody2D _rb;
-    private SpriteRenderer _spriteRenderer;
-    private CapsuleCollider2D _collider2D;
-    private int _doubleJumpCounter;
+    private float _ignoreHorizontalInputTimer = 0f;
+    private const float _ignoreHorizontalInputOffset = 0.45f;
 
-    public float jumpShortSpeed = 3f;   // Velocity for the lowest jump
-    public float jumpSpeed = 6f;          // Velocity for the highest jump
-    bool jump = false;
-    bool jumpCancel = false;
-    bool doubleJump = false;
-    bool doubleJumpCancel = false;
-    bool grounded = false;
+    private const float _airXOffset = 0.85f;
 
-
+    public int _doubleJumpCounter
+    {
+        get; set;
+    }
+    // Use this for initialization
     void Awake()
     {
-        _collider2D = GetComponent<CapsuleCollider2D>();
-        _defaultJumpMultiplier = _jumpMultiplier;
-        _defaultJumpOffset = _jumpOffset;
-        _rb = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-
-    void Start()
-    {       
-	    _isHoldingJumpButton = false;
-        _isDoubleJumpReady = false;
-        _isJumping = false;
-        _doubleJumpCounter = 0;
-    }
-
-    void Update()
-    {
-        _currentSpeed = Input.GetAxis("Horizontal") * _maxSpeed;
-
-        grounded = _collider2D.IsTouchingLayers(LayerMask.GetMask("Ground"));  // Check if player is grounded however you like
-
-        if (_doubleJumpCounter < 2)
+        if (_WasInitialized == null || _WasInitialized == false)
         {
-            if (Input.GetButtonUp("Jump") && !grounded)
-            {
-                _doubleJumpCounter++;
-                jumpCancel = true;
-            }
-            if (Input.GetButtonDown("Jump") && _isDoubleJumpReady)
-            {
-                doubleJump = true;
-            }
+            base.Initialize();
         }
-		else if(grounded)
-		{
-			_doubleJumpCounter = 0;
-		}
-
+        if (_WasInputInitialized == null || _WasInputInitialized == false)
+        {
+            InitializeInput();
+        }
+        _doubleJumpCounter = 0;
     }
 
     void FixedUpdate()
     {
-        Move();
-        Jump();
-    }
-
-    void Move()
-    {
-        _rb.velocity = new Vector2(_currentSpeed, _rb.velocity.y);
-        ChangeDirection();
-    }
-
-    void ChangeDirection()
-    {
-        if (_currentSpeed > 0f && _spriteRenderer.flipX)
+        if (_IsPlayerRunning && !_IsPlayerSwinging)
         {
-            _spriteRenderer.flipX = false;
-        }
-        else if (_currentSpeed < 0 && !_spriteRenderer.flipX)
-        {
-            _spriteRenderer.flipX = true;
-        }
-    }
-
-    void Jump()
-    {
-        if (!_isDoubleJumpReady)
-        {
-            _isDoubleJumpReady = true;
-        }
-
-        if (_isDoubleJumpReady)
-        {
-            if (jumpCancel)
+            if (_DataInstance._IsAboveSomething)
             {
-                if (_rb.velocity.y > jumpShortSpeed)
-                {
-					if(_doubleJumpCounter < 1)
-					{
-						_rb.velocity = new Vector2(_rb.velocity.x, jumpShortSpeed);
-					}
-					else
-					{
-						_rb.velocity = new Vector2(_rb.velocity.x, jumpShortSpeed * _doubleJumpStrength);
-					}
-                }
-                jumpCancel = false;
+                Run();
             }
-            if (doubleJump)
+        }
+        if (_IsPlayerJumping)
+        {
+            Jump();
+        }
+
+        // AirControl has to happen after Jump() b/c of a timer.
+        // It also depends on _IsPlayerRunning b/c it gets horizontal input of player.
+        if (_IsPlayerRunning && !_IsPlayerSwinging)
+        {
+            if (!_DataInstance._IsAboveSomething)
             {
-				if(_doubleJumpCounter < 1)
-				{
-					_rb.velocity = new Vector2(_rb.velocity.x, jumpSpeed);
-				}
-				else
-				{
-					_rb.velocity = new Vector2(_rb.velocity.x, jumpSpeed * _doubleJumpStrength);
-				}
-                doubleJump = false;
+                AirControl();
             }
         }
 
+        if (_WasDirectionChanged)
+        {
+            ChangeDirection();
+            _WasDirectionChanged = !_WasDirectionChanged;
+        }
+
+        // Must set these to false or FixedUpdate will capture input too many times from Update  
+        _IsPlayerJumping = false;
+        _IsPlayerRunning = false;
+        _IsPlayerSwinging = false;
+    }
+
+    private void Run()
+    {
+        // This code only runs if the player is above something / isgrounded
+        float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
+        float playerX = xPos * _runMultiplier * Time.fixedDeltaTime;
+
+        Vector2 playerVelocity = new Vector2(playerX, _RigidBody.velocity.y);
+        _RigidBody.velocity = playerVelocity;
+
+        bool isPlayerMoving = Mathf.Abs(_RigidBody.velocity.x) > Mathf.Epsilon;
+        _Animator.SetBool("isRunning", isPlayerMoving);
+    }
+
+    private void AirControl()
+    {
+        // the If is for directly after a wall jump
+        if (Time.timeSinceLevelLoad < _ignoreHorizontalInputTimer)
+        {
+            float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
+            float playerX = xPos * _fallMultiplier;
+
+            _RigidBody.AddForce(new Vector2(playerX, 0f), ForceMode2D.Force);
+
+            bool isPlayerFalling = Mathf.Abs(_RigidBody.velocity.x) > Mathf.Epsilon;
+            _Animator.SetBool("isRunning", isPlayerFalling);
+        }
+        else
+        {
+            //This else section is for adjusting airSpeed anytime other than after a walljump
+            float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
+            float playerX = xPos * (_runMultiplier * _airXOffset) * Time.fixedDeltaTime;
+
+            Vector2 playerVelocity = new Vector2(playerX, _RigidBody.velocity.y);
+            _RigidBody.velocity = playerVelocity;
+
+            bool isPlayerMoving = Mathf.Abs(_RigidBody.velocity.x) > Mathf.Epsilon;
+            _Animator.SetBool("isRunning", isPlayerMoving);
+        }
+    }
+
+    private void Jump()
+    {
+        if (PlayerData._DataInstance._IsAboveSomething)
+        {
+            _doubleJumpCounter = 0;
+        }
+        if (_doubleJumpCounter == 0)
+        {
+            _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
+            _doubleJumpCounter++;
+            _RigidBody.AddForce(new Vector2(0f, _defaultJumpSpeed), ForceMode2D.Impulse);
+        }
+        else if (Time.timeSinceLevelLoad > _doubleJumpTimer)
+        {
+            if (_DataInstance._IsHorizontalToWall)
+            {
+                _doubleJumpCounter++;
+                WallJump();
+            }
+            else if (_doubleJumpCounter == 1)
+            {
+                _doubleJumpCounter++;
+                _RigidBody.AddForce(new Vector2(0f, _doubleJumpStrength), ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    private void WallJump()
+    {
+        RaycastHit2D hit = _DataInstance._HorizontalWallRaycast;
+        if (hit.collider)
+        {
+            _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
+            Vector2 vel = new Vector2(_wallJumpSpd.x * hit.normal.x, _wallJumpSpd.y);
+            _RigidBody.velocity = new Vector2(0f, _RigidBody.velocity.y);
+            _RigidBody.AddForce(vel, ForceMode2D.Impulse);
+
+            //This will keep the player from running and jumping right away
+            _ignoreHorizontalInputTimer = Time.timeSinceLevelLoad + _ignoreHorizontalInputOffset;
+            _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
+        }
+    }
+
+    private void ChangeDirection()
+    {
+        if (CrossPlatformInputManager.GetAxis("Horizontal") > 0 && _SpriteRenderer.flipX)
+        {
+            _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
+        }
+        else if (CrossPlatformInputManager.GetAxis("Horizontal") < 0 && !_SpriteRenderer.flipX)
+        {
+            _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
+        }
     }
 }
-
-
-//**************************************************************************** */
-//*******************THE BELOW CODE WAS THE CRAPPY WAY I GOT DOUBLE JUMP WORKING */
-    // void Update()
-    // {
-    //     _currentSpeed = Input.GetAxis("Horizontal") * _maxSpeed;
-
-    //     grounded = _collider2D.IsTouchingLayers(LayerMask.GetMask("Ground"));  // Check if player is grounded however you like
-
-    //     if (_doubleJumpCounter < 2)
-    //     {
-    //         // if (Input.GetButtonDown("Jump") && grounded)
-    //         // {
-    //         //     jump = true;
-    //         // }
-    //         if (Input.GetButtonUp("Jump") && !grounded)
-    //         {
-    //             _doubleJumpCounter++;
-    //             Debug.Log(_doubleJumpCounter + " = JumpCtr");
-    //             jumpCancel = true;
-    //         }
-
-    //         if (Input.GetButtonDown("Jump") && _isDoubleJumpReady)
-    //         {
-    //             doubleJump = true;
-    //         }
-    //         // if (Input.GetButtonUp("Jump") && !grounded && !_isDoubleJumpReady)
-    //         // {
-    //         //     doubleJumpCancel = true;
-    //         // }
-    //     }
-	// 	else if(grounded)
-	// 	{
-	// 		_doubleJumpCounter = 0;
-	// 	}
-
-    // }
-
-	//     void Jump()
-    // {
-    //     if (!_isDoubleJumpReady)
-    //     {
-    //         // if (jump)
-    //         // {
-    //         //     _rb.velocity = new Vector2(_rb.velocity.x, jumpSpeed);
-    //         //     Debug.Log("Hit 'Jump'");
-	// 		// 	jump = false;
-    //         // }
-    //         // Cancel the jump when the button is no longer pressed
-    //         _isDoubleJumpReady = true;
-    //     }
-
-    //     if (_isDoubleJumpReady)
-    //     {
-    //         if (jumpCancel)
-    //         {
-    //             if (_rb.velocity.y > jumpShortSpeed)
-    //             {
-    //                 _rb.velocity = new Vector2(_rb.velocity.x, jumpShortSpeed);
-	// 				Debug.Log("Hit 'JumpCancel'");
-    //             }
-    //             jumpCancel = false;
-    //         }
-    //         if (doubleJump)
-    //         {
-    //             Debug.Log("Hit 'DoubleJump'");
-    //             _rb.velocity = new Vector2(_rb.velocity.x, jumpSpeed);
-    //             doubleJump = false;
-    //         }
-    //         // Cancel the jump when the button is no longer pressed
-    //        // if (doubleJumpCancel)
-    //         //{
-    //           //  Debug.Log("Hit 'DoubleJumpCANCEL'");
-
-    //             //if (_rb.velocity.y > jumpShortSpeed)
-    //            // {
-    //                // _rb.velocity = new Vector2(_rb.velocity.x, jumpShortSpeed);
-    //             //}
-    //             //doubleJumpCancel = false;
-    //             //_isDoubleJumpReady = false;
-    //        // }
-    //     }
-
-    // }

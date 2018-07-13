@@ -143,6 +143,8 @@ public class PlayerController : MonoBehaviour {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); 
 		float playerX = controlThrow * _runMultiplier  * Time.fixedDeltaTime; 
 
+		 
+
         Vector2 playerVelocity = new Vector2(playerX, _rigidbody.velocity.y );
 		_rigidbody.velocity = playerVelocity;  
 
