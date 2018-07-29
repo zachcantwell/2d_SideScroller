@@ -69,13 +69,13 @@ public class WallSlide : PlayerInput
 
     void FixedUpdate()
     {
-        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbing && !_InputInstance._IsPlayerSwinging)
+        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbing && !_InputInstance._IsPlayerSwinging && !_DataInstance._IsTouchingLadder)
         {
             if (_DataInstance._IsHorizontalToWall || _DataInstance._IsHorizontalToCorner)
             {
                 if (_DataInstance._LastPlayerPosition.y > transform.position.y)
                 {
-                    if (!_DataInstance._IsAboveGround)
+                    if (!_DataInstance._IsAboveGround && !_DataInstance._IsTouchingWater && !_DataInstance._IsTouchingLadder)
                     {
                         PerformWallSlide();
                     }
@@ -103,6 +103,7 @@ public class WallSlide : PlayerInput
             }
             else if (_hasStartedWallSliding && _DataInstance._LastPlayerPosition.y > transform.position.y)
             {
+
                 _DataInstance._RigidBody.gravityScale = Mathf.Lerp(_DataInstance._RigidBody.gravityScale,
                                                 _targetGravityScale, Time.fixedDeltaTime * _activatedLerpSpeed);
 
@@ -118,21 +119,28 @@ public class WallSlide : PlayerInput
 
     private void CheckToResetValues()
     {
-        if (_DataInstance._LastPlayerPosition.y < transform.position.y)
+        if (!_DataInstance._IsTouchingLadder)
         {
-            SetBackToDefaultValues();
-        }
-        else if (_InputInstance._IsPlayerJumping)
-        {
-            SetBackToDefaultValues();
-        }
-        else if (_DataInstance._IsAboveGround || _DataInstance._IsAboveCorner)
-        {
-            SetBackToDefaultValues();
-        }
-        else if (_InputInstance._GetHorizontalAxisValue <= 0.1f)
-        {
-            SetBackToDefaultValues();
+            if (_DataInstance._LastPlayerPosition.y < transform.position.y)
+            {
+                SetBackToDefaultValues();
+            }
+            else if (_InputInstance._IsPlayerJumping)
+            {
+                SetBackToDefaultValues();
+            }
+            else if (_DataInstance._IsAboveGround || _DataInstance._IsAboveCorner)
+            {
+                SetBackToDefaultValues();
+            }
+            else if (_InputInstance._GetHorizontalAxisValue <= 0.1f)
+            {
+                SetBackToDefaultValues();
+            }
+            else if(_DataInstance._IsTouchingWater || _DataInstance._IsTouchingLadder)
+            {
+                SetBackToDefaultValues();
+            }
         }
     }
 
@@ -142,4 +150,6 @@ public class WallSlide : PlayerInput
         _DataInstance._RigidBody.drag = 0f;
         _DataInstance._RigidBody.gravityScale = _DataInstance._DefaultGravityScale;
     }
+
+
 }

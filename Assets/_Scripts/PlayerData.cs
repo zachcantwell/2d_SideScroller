@@ -9,6 +9,14 @@ public class PlayerData : MonoBehaviour
     {
         get; private set;
     }
+    public bool _IsTouchingLadder
+    {
+        get; private set; 
+    }
+    public bool _IsTouchingWater
+    {
+        get; private set; 
+    }
 
     //Horizontal Bools
     public bool _IsHorizontalToSomething
@@ -53,6 +61,10 @@ public class PlayerData : MonoBehaviour
     {
         get; private set;
     }
+    public bool _IsAboveLadder
+    {
+        get; private set; 
+    }
 
     //Horizontal Raycasts
     public RaycastHit2D _HorizontalWallRaycast
@@ -89,22 +101,39 @@ public class PlayerData : MonoBehaviour
     {
         get; private set;
     }
+    public RaycastHit2D _AboveLadderRaycast
+    {
+        get; private set; 
+    }
+
 
     public Vector2 _LastPlayerPosition
     {
         get; private set;
     }
-
     public Vector2 _LastGroundedPosition
     {
         get; private set; 
     }
+
     public float _DefaultGravityScale
     {
         get; private set; 
     }
-
     public float _DefaultDrag
+    {
+        get; private set; 
+    }
+    public CircleCollider2D _PlayerCircleCollider
+    {
+        get; private set; 
+    }
+    public BoxCollider2D _PlayerBoxCollider
+    {
+        get; private set; 
+    }
+
+    public Collider2D _LadderCollider
     {
         get; private set; 
     }
@@ -113,6 +142,7 @@ public class PlayerData : MonoBehaviour
     private const float _horiztonalDistanceOfRaycast = 0.1f;
     private const float _originPoint = 0.2f;
     private const float _destinationPoint = 0.2f;
+    private const float _originOfXPosOffset = 0.235f; 
 
     public Rigidbody2D _RigidBody
     {
@@ -168,7 +198,10 @@ public class PlayerData : MonoBehaviour
         _DefaultDrag = _RigidBody.drag;
         _DefaultGravityScale = _RigidBody.gravityScale; 
         _Collider2D = GetComponents<Collider2D>();
+        _PlayerBoxCollider = GetComponent<BoxCollider2D>();
+        _PlayerCircleCollider = GetComponent<CircleCollider2D>();
         _DistanceJoint2D = GetComponent<DistanceJoint2D>();
+        _LadderCollider = null;  
         SetBoolsToFalse();
 
         if (_SpriteRenderer == null)
@@ -206,6 +239,7 @@ public class PlayerData : MonoBehaviour
         _IsAboveGrabbableObject = false;
         _IsAboveWall = false;
         _IsAboveSomething = false;
+        _IsAboveLadder = false; 
         _IsHorizontalToCorner = false;
         _IsHorizontalToGrabableObject = false;
         _IsHorizontalToGround = false;
@@ -220,15 +254,17 @@ public class PlayerData : MonoBehaviour
 
         _IsHorizontalToSomething = IsPlayerHorizontalToSomething();
         _IsAboveSomething = IsPlayerAboveSomething();
+       
+       // TODO: Uncomment this when needed (might use for crouching)
+       // _IsBelowTopOfLadder = CheckAbovePlayersHead();
 
         if(_IsAboveSomething)
         {
             _LastGroundedPosition = transform.position;
         }
-        Debug.LogWarning(_IsAboveSomething + " isAboveSomething from PlayerData");
         _LastPlayerPosition = transform.position;
     }
-
+    
     public bool IsPlayerHorizontalToSomething()
     {
         if (_SpriteRenderer.flipX == true)
@@ -424,9 +460,18 @@ public class PlayerData : MonoBehaviour
                             _IsAboveGround = true;
                         }
                     }
+                    else if (rayCenter.collider.gameObject.tag == "LadderTop" || rayCenter.collider.gameObject.tag == "Ladder" )
+                    {
+                        if (rayCenter.distance < _downDistanceOfRaycast)
+                        {
+                            Debug.Log("Above Ladder hit");
+                            _AboveLadderRaycast = rayCenter;
+                            _IsAboveLadder = true;
+                        }
+                    }
                 }
             }
-            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject)
+            if (_IsAboveCorner || _IsAboveGround || _IsAboveGrabbableObject || _IsAboveLadder)
             {
                 return true;
             }
@@ -436,7 +481,7 @@ public class PlayerData : MonoBehaviour
 
     private bool CheckBelowRightOfPlayer()
     {
-        Vector2 origin = new Vector2(transform.position.x + transform.localScale.x * 0.3f,
+        Vector2 origin = new Vector2(transform.position.x + transform.localScale.x * _originOfXPosOffset,
                                      transform.position.y + 0.1f - transform.localScale.y * 0.5f);
 
         var hit = Physics2D.LinecastAll(origin, origin + Vector2.down / 4);
@@ -488,7 +533,7 @@ public class PlayerData : MonoBehaviour
     private bool CheckBelowLeftOfPlayer()
     {
         //Checking Left Raycast Here
-        Vector2 origin = new Vector2(transform.position.x - transform.localScale.x * 0.3f,
+        Vector2 origin = new Vector2(transform.position.x - transform.localScale.x * _originOfXPosOffset,
                                  transform.position.y + 0.1f - transform.localScale.y * .5f);
 
         var hit = Physics2D.LinecastAll(origin, origin + Vector2.down / 4);
@@ -537,4 +582,73 @@ public class PlayerData : MonoBehaviour
         }
         return false;
     }
+
+    private bool CheckAbovePlayersHead()
+    {
+        Vector2 origin = new Vector2(transform.position.x,
+                                     transform.position.y + 0.2f + transform.localScale.y * 0.5f);
+
+        var hit = Physics2D.LinecastAll(origin, origin + Vector2.up/3);
+        Debug.DrawLine(origin, origin + Vector2.up/3, Color.cyan, Time.deltaTime);
+
+        if (hit != null)
+        {
+            foreach (RaycastHit2D rayAbove in hit)
+            {
+                if (rayAbove.collider)
+                {
+                    Debug.Log(rayAbove.collider.gameObject + " was hit above player");
+                    if (rayAbove.collider.gameObject.tag == "Ladder")
+                    {
+                        Debug.Log("Ladder is Above Player Rayhit");
+                        if (rayAbove.distance < _downDistanceOfRaycast)
+                        {
+                           // _IsBelowTopOfLadder = true; 
+                        }
+                    }
+                    
+                }
+            }
+           // if (_IsBelowTopOfLadder)
+           // {
+          //      return true;
+           // }
+        }
+        return false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.gameObject.tag == "Ladder")
+		{
+			_IsTouchingLadder = true; 
+            _LadderCollider =  other.gameObject.GetComponent<Collider2D>();
+		}
+        if(other.gameObject.tag == "Water")
+        {
+            _IsTouchingWater = true; 
+        }
+	}
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            _IsTouchingWater = true; 
+        }
+    }
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.gameObject.tag == "Ladder")
+		{
+			_IsTouchingLadder = false; 
+            _LadderCollider = null; 
+		}
+
+        if(other.gameObject.tag == "Water")
+        {
+            _IsTouchingWater = false; 
+        }
+	}
 }
