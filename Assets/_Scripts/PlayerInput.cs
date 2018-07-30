@@ -15,6 +15,11 @@ public class PlayerInput : PlayerData
         get; set;
     }
 
+    public bool _IsPlayerSwordDrawn
+    {
+        get; set; 
+    }
+
     public bool _IsPlayerGroundSliding
     {
         get; set;
@@ -118,6 +123,7 @@ public class PlayerInput : PlayerData
         _IsPlayerWallSliding = false;
         _IsPlayerGroundSliding = false;
         _IsPlayerSwimming = false;
+        _IsPlayerSwordDrawn = false; 
         _WasDirectionChanged = false;
         _WasInputInitialized = true;
     }
@@ -135,6 +141,14 @@ public class PlayerInput : PlayerData
         _IsPlayerClimbingDownLadder = IsPlayerClimbingDownLadder();
         _IsPlayerJumpingOffLadder = IsPlayerJumpingOffLadder();
         _IsPlayerGroundSliding = IsPlayerGroundSliding();
+
+        // Can ONLY trigger the sword drawing if the player is idle (for now)
+        if(!_IsPlayerRunning && !_IsPlayerJumping && !_IsPlayerSwimming && !_IsPlayerSwinging 
+            && !_IsPlayerGrabbing && !_IsPlayerWallSliding && !_IsPlayerClimbingUpLadder 
+            && !_IsPlayerClimbingDownLadder && !_IsPlayerJumpingOffLadder && !_IsPlayerGroundSliding)
+            {
+               DidPlayerDrawSword();
+            }
 
         _GetHorizontalAxisValue = CrossPlatformInputManager.GetAxis("Horizontal");
         _GetVerticalAxisValue = CrossPlatformInputManager.GetAxis("Vertical");
@@ -224,6 +238,11 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerGrabbing()
     {
+        // Cant perform this function if sword is drawn
+        if(_IsPlayerSwordDrawn)
+        {
+            return false; 
+        }
         if (CrossPlatformInputManager.GetButton("Grab"))
         {
             return true;
@@ -233,6 +252,11 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerClimbingUpLadder()
     {
+        // Cant perform this function if sword is drawn
+        if(_IsPlayerSwordDrawn)
+        {
+            return false; 
+        }
         float yPos = CrossPlatformInputManager.GetAxisRaw("Vertical");
         bool isPlayerPushingUp = yPos > _climbThreshold;
         return isPlayerPushingUp;
@@ -240,9 +264,22 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerClimbingDownLadder()
     {
+        // Cant perform this function if sword is drawn
+        if(_IsPlayerSwordDrawn)
+        {
+            return false; 
+        }
         float yPos = CrossPlatformInputManager.GetAxisRaw("Vertical");
         bool isPlayerPushingDown = yPos < -_climbThreshold;
         return isPlayerPushingDown;
+    }
+
+    private void DidPlayerDrawSword()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("DrawSword"))
+        {
+            _IsPlayerSwordDrawn = !_IsPlayerSwordDrawn;
+        }
     }
 
 

@@ -79,7 +79,16 @@ public class GrapplingHook : PlayerInput
 
     void Update()
     {
-        // hook timer is used to control the frequency that the player spams the controls
+        // Can ONLY Swing if sword isnt drawn
+        if(!_InputInstance._IsPlayerSwordDrawn)
+        {
+            PerformSwing();
+        }
+    }
+
+    private void PerformSwing()
+    {
+          // hook timer is used to control the frequency that the player spams the controls
         if (Time.timeSinceLevelLoad > _hookTimer + _hookTimerOffset)
         {
             if (_hasPlayerEnteredHookHolderZone)

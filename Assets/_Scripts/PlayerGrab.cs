@@ -20,7 +20,7 @@ public class PlayerGrab : PlayerInput
     private float _offset;
     private Vector2 _hitPosition;
     private Rigidbody2D _grabbedRigidbody;
-    
+
     private static PlayerGrab _GrabInstance
     {
         get; set;
@@ -47,7 +47,6 @@ public class PlayerGrab : PlayerInput
         InitializeGrab();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!_wasGrabbed)
@@ -80,6 +79,7 @@ public class PlayerGrab : PlayerInput
                 NotTouchingPlayer(grabPos, checkLeft, checkRight);
             }
         }
+
     }
 
     void FixedUpdate()
@@ -110,7 +110,7 @@ public class PlayerGrab : PlayerInput
                 grabPos = _hitPosition - (Vector2)gameObject.transform.position;
             }
 
-            _offset = _baseOffset; 
+            _offset = _baseOffset;
             if (_offset <= _baseOffset)
             {
                 _offset = _baseOffset;
@@ -121,7 +121,7 @@ public class PlayerGrab : PlayerInput
             _offset = Mathf.Lerp(_offset, 1, Time.deltaTime);
         }
 
-         grabPos = Vector2.Lerp(_hitObject.transform.position, grabPos, _offset);
+        grabPos = Vector2.Lerp(_hitObject.transform.position, grabPos, _offset);
         _grabbedRigidbody.MovePosition(grabPos);
     }
 
@@ -142,7 +142,7 @@ public class PlayerGrab : PlayerInput
                 {
                     grabPos = _hitPosition - (Vector2)gameObject.transform.position;
                 }
-                _offset = _baseOffset; 
+                _offset = _baseOffset;
                 if (_offset <= _baseOffset)
                 {
                     _offset = _baseOffset;
@@ -152,8 +152,8 @@ public class PlayerGrab : PlayerInput
             {
                 _offset = Mathf.Lerp(_offset, 1, Time.deltaTime);
             }
-            grabPos = Vector2.Lerp(_hitObject.transform.position ,grabPos,_offset);
-                                                                                           
+            grabPos = Vector2.Lerp(_hitObject.transform.position, grabPos, _offset);
+
             _grabbedRigidbody.MovePosition(grabPos);
 
             if (Vector2.Distance(_hitObject.transform.position, grabPos) < 0.01f)
@@ -196,7 +196,7 @@ public class PlayerGrab : PlayerInput
 
             Physics2D.IgnoreLayerCollision(12, 10, false);
             _grabbedRigidbody.gravityScale = _defaultObjectGravityScale;
-            _offset = _baseOffset; 
+            _offset = _baseOffset;
             _hit = new RaycastHit2D();
             _hitObject = null;
             _grabbedRigidbody = null;
@@ -270,7 +270,7 @@ public class PlayerGrab : PlayerInput
         }
         _wasDirectionChanged = false;
         _wasGrabbed = false;
-   
+
         _offset = _baseOffset;
     }
 
