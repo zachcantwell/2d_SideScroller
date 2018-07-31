@@ -106,7 +106,6 @@ public class PlayerData : MonoBehaviour
         get; private set; 
     }
 
-
     public Vector2 _LastPlayerPosition
     {
         get; private set;
@@ -170,6 +169,12 @@ public class PlayerData : MonoBehaviour
         get; private set;
     }
 
+    public JUMPSTATUS _JumpState
+    {
+        get; set; 
+    }
+
+
     void Awake()
     {
         if (_DataInstance != null && _DataInstance != this)
@@ -202,6 +207,7 @@ public class PlayerData : MonoBehaviour
         _PlayerCircleCollider = GetComponent<CircleCollider2D>();
         _DistanceJoint2D = GetComponent<DistanceJoint2D>();
         _LadderCollider = null;  
+        _JumpState = JUMPSTATUS.None;
         SetBoolsToFalse();
 
         if (_SpriteRenderer == null)

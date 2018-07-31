@@ -142,8 +142,8 @@ public class PlayerInput : PlayerData
         _IsPlayerJumpingOffLadder = IsPlayerJumpingOffLadder();
         _IsPlayerGroundSliding = IsPlayerGroundSliding();
 
-        // Can ONLY trigger the sword drawing if the player is idle (for now)
-        if(!_IsPlayerRunning && !_IsPlayerJumping && !_IsPlayerSwimming && !_IsPlayerSwinging 
+        // Can ONLY trigger the sword drawing if the player is idle or running
+        if(!_IsPlayerJumping && !_IsPlayerSwimming && !_IsPlayerSwinging && _DataInstance._IsAboveSomething
             && !_IsPlayerGrabbing && !_IsPlayerWallSliding && !_IsPlayerClimbingUpLadder 
             && !_IsPlayerClimbingDownLadder && !_IsPlayerJumpingOffLadder && !_IsPlayerGroundSliding)
             {

@@ -1,0 +1,3540 @@
+fileFormatVersion: 2
+guid: 610604452920182429ac9532812887d5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: adventurer-v1.5-Sheet_V5_0
+    21300002: adventurer-v1.5-Sheet_V5_1
+    21300004: adventurer-v1.5-Sheet_V5_2
+    21300006: adventurer-v1.5-Sheet_V5_3
+    21300008: adventurer-v1.5-Sheet_V5_4
+    21300010: adventurer-v1.5-Sheet_V5_5
+    21300012: adventurer-v1.5-Sheet_V5_6
+    21300014: adventurer-v1.5-Sheet_V5_7
+    21300016: adventurer-v1.5-Sheet_V5_8
+    21300018: adventurer-v1.5-Sheet_V5_9
+    21300020: adventurer-v1.5-Sheet_V5_10
+    21300022: adventurer-v1.5-Sheet_V5_11
+    21300024: adventurer-v1.5-Sheet_V5_12
+    21300026: adventurer-v1.5-Sheet_V5_13
+    21300028: adventurer-v1.5-Sheet_V5_14
+    21300030: adventurer-v1.5-Sheet_V5_15
+    21300032: adventurer-v1.5-Sheet_V5_16
+    21300034: adventurer-v1.5-Sheet_V5_17
+    21300036: adventurer-v1.5-Sheet_V5_18
+    21300038: adventurer-v1.5-Sheet_V5_19
+    21300040: adventurer-v1.5-Sheet_V5_20
+    21300042: adventurer-v1.5-Sheet_V5_21
+    21300044: adventurer-v1.5-Sheet_V5_22
+    21300046: adventurer-v1.5-Sheet_V5_23
+    21300048: adventurer-v1.5-Sheet_V5_24
+    21300050: adventurer-v1.5-Sheet_V5_25
+    21300052: adventurer-v1.5-Sheet_V5_26
+    21300054: adventurer-v1.5-Sheet_V5_27
+    21300056: adventurer-v1.5-Sheet_V5_28
+    21300058: adventurer-v1.5-Sheet_V5_29
+    21300060: adventurer-v1.5-Sheet_V5_30
+    21300062: adventurer-v1.5-Sheet_V5_31
+    21300064: adventurer-v1.5-Sheet_V5_32
+    21300066: adventurer-v1.5-Sheet_V5_33
+    21300068: adventurer-v1.5-Sheet_V5_34
+    21300070: adventurer-v1.5-Sheet_V5_35
+    21300072: adventurer-v1.5-Sheet_V5_36
+    21300074: adventurer-v1.5-Sheet_V5_37
+    21300076: adventurer-v1.5-Sheet_V5_38
+    21300078: adventurer-v1.5-Sheet_V5_39
+    21300080: adventurer-v1.5-Sheet_V5_40
+    21300082: adventurer-v1.5-Sheet_V5_41
+    21300084: adventurer-v1.5-Sheet_V5_42
+    21300086: adventurer-v1.5-Sheet_V5_43
+    21300088: adventurer-v1.5-Sheet_V5_44
+    21300090: adventurer-v1.5-Sheet_V5_45
+    21300092: adventurer-v1.5-Sheet_V5_46
+    21300094: adventurer-v1.5-Sheet_V5_47
+    21300096: adventurer-v1.5-Sheet_V5_48
+    21300098: adventurer-v1.5-Sheet_V5_49
+    21300100: adventurer-v1.5-Sheet_V5_50
+    21300102: adventurer-v1.5-Sheet_V5_51
+    21300104: adventurer-v1.5-Sheet_V5_52
+    21300106: adventurer-v1.5-Sheet_V5_53
+    21300108: adventurer-v1.5-Sheet_V5_54
+    21300110: adventurer-v1.5-Sheet_V5_55
+    21300112: adventurer-v1.5-Sheet_V5_56
+    21300114: adventurer-v1.5-Sheet_V5_57
+    21300116: adventurer-v1.5-Sheet_V5_58
+    21300118: adventurer-v1.5-Sheet_V5_59
+    21300120: adventurer-v1.5-Sheet_V5_60
+    21300122: adventurer-v1.5-Sheet_V5_61
+    21300124: adventurer-v1.5-Sheet_V5_62
+    21300126: adventurer-v1.5-Sheet_V5_63
+    21300128: adventurer-v1.5-Sheet_V5_64
+    21300130: adventurer-v1.5-Sheet_V5_65
+    21300132: adventurer-v1.5-Sheet_V5_66
+    21300134: adventurer-v1.5-Sheet_V5_67
+    21300136: adventurer-v1.5-Sheet_V5_68
+    21300138: adventurer-v1.5-Sheet_V5_69
+    21300140: adventurer-v1.5-Sheet_V5_70
+    21300142: adventurer-v1.5-Sheet_V5_71
+    21300144: adventurer-v1.5-Sheet_V5_72
+    21300146: adventurer-v1.5-Sheet_V5_73
+    21300148: adventurer-v1.5-Sheet_V5_74
+    21300150: adventurer-v1.5-Sheet_V5_75
+    21300152: adventurer-v1.5-Sheet_V5_76
+    21300154: adventurer-v1.5-Sheet_V5_77
+    21300156: adventurer-v1.5-Sheet_V5_78
+    21300158: adventurer-v1.5-Sheet_V5_79
+    21300160: adventurer-v1.5-Sheet_V5_80
+    21300162: adventurer-v1.5-Sheet_V5_81
+    21300164: adventurer-v1.5-Sheet_V5_82
+    21300166: adventurer-v1.5-Sheet_V5_83
+    21300168: adventurer-v1.5-Sheet_V5_84
+    21300170: adventurer-v1.5-Sheet_V5_85
+    21300172: adventurer-v1.5-Sheet_V5_86
+    21300174: adventurer-v1.5-Sheet_V5_87
+    21300176: adventurer-v1.5-Sheet_V5_88
+    21300178: adventurer-v1.5-Sheet_V5_89
+    21300180: adventurer-v1.5-Sheet_V5_90
+    21300182: adventurer-v1.5-Sheet_V5_91
+    21300184: adventurer-v1.5-Sheet_V5_92
+    21300186: adventurer-v1.5-Sheet_V5_93
+    21300188: adventurer-v1.5-Sheet_V5_94
+    21300190: adventurer-v1.5-Sheet_V5_95
+    21300192: adventurer-v1.5-Sheet_V5_96
+    21300194: adventurer-v1.5-Sheet_V5_97
+    21300196: adventurer-v1.5-Sheet_V5_98
+    21300198: adventurer-v1.5-Sheet_V5_99
+    21300200: adventurer-v1.5-Sheet_V5_100
+    21300202: adventurer-v1.5-Sheet_V5_101
+    21300204: adventurer-v1.5-Sheet_V5_102
+    21300206: adventurer-v1.5-Sheet_V5_103
+    21300208: adventurer-v1.5-Sheet_V5_104
+    21300210: adventurer-v1.5-Sheet_V5_105
+    21300212: adventurer-v1.5-Sheet_V5_106
+    21300214: adventurer-v1.5-Sheet_V5_107
+    21300216: adventurer-v1.5-Sheet_V5_108
+    21300218: adventurer-v1.5-Sheet_V5_109
+    21300220: adventurer-v1.5-Sheet_V5_110
+    21300222: adventurer-v1.5-Sheet_V5_111
+    21300224: adventurer-v1.5-Sheet_V5_112
+    21300226: adventurer-v1.5-Sheet_V5_113
+    21300228: adventurer-v1.5-Sheet_V5_114
+    21300230: adventurer-v1.5-Sheet_V5_115
+    21300232: adventurer-v1.5-Sheet_V5_116
+    21300234: adventurer-v1.5-Sheet_V5_117
+    21300236: adventurer-v1.5-Sheet_V5_118
+    21300238: adventurer-v1.5-Sheet_V5_119
+    21300240: adventurer-v1.5-Sheet_V5_120
+    21300242: adventurer-v1.5-Sheet_V5_121
+    21300244: adventurer-v1.5-Sheet_V5_122
+    21300246: adventurer-v1.5-Sheet_V5_123
+    21300248: adventurer-v1.5-Sheet_V5_124
+    21300250: adventurer-v1.5-Sheet_V5_126
+    21300252: adventurer-v1.5-Sheet_V5_127
+    21300254: adventurer-v1.5-Sheet_V5_128
+    21300256: adventurer-v1.5-Sheet_V5_129
+    21300258: adventurer-v1.5-Sheet_V5_130
+    21300260: adventurer-v1.5-Sheet_V5_131
+    21300262: adventurer-v1.5-Sheet_V5_132
+    21300264: adventurer-v1.5-Sheet_V5_133
+    21300266: adventurer-v1.5-Sheet_V5_134
+    21300268: adventurer-v1.5-Sheet_V5_135
+    21300270: adventurer-v1.5-Sheet_V5_136
+    21300272: adventurer-v1.5-Sheet_V5_138
+    21300274: adventurer-v1.5-Sheet_V5_139
+    21300276: adventurer-v1.5-Sheet_V5_140
+    21300278: adventurer-v1.5-Sheet_V5_141
+    21300280: adventurer-v1.5-Sheet_V5_142
+    21300282: adventurer-v1.5-Sheet_V5_143
+    21300284: adventurer-v1.5-Sheet_V5_144
+    21300286: adventurer-v1.5-Sheet_V5_145
+    21300288: adventurer-v1.5-Sheet_V5_146
+    21300290: adventurer-v1.5-Sheet_V5_147
+    21300292: adventurer-v1.5-Sheet_V5_148
+    21300294: adventurer-v1.5-Sheet_V5_149
+    21300296: adventurer-v1.5-Sheet_V5_150
+    21300298: adventurer-v1.5-Sheet_V5_151
+    21300300: adventurer-v1.5-Sheet_V5_152
+    21300302: adventurer-v1.5-Sheet_V5_153
+    21300304: adventurer-v1.5-Sheet_V5_154
+    21300306: adventurer-v1.5-Sheet_V5_155
+    21300308: adventurer-v1.5-Sheet_V5_156
+    21300310: adventurer-v1.5-Sheet_V5_157
+    21300312: adventurer-v1.5-Sheet_V5_158
+    21300314: adventurer-v1.5-Sheet_V5_159
+    21300316: adventurer-v1.5-Sheet_V5_160
+    21300318: adventurer-v1.5-Sheet_V5_161
+    21300320: adventurer-v1.5-Sheet_V5_162
+    21300322: adventurer-v1.5-Sheet_V5_163
+    21300324: adventurer-v1.5-Sheet_V5_164
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868689c35858ae94ca84d6e9181fd29e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6229c21eb4bfa449022d0eed6e8d92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c728aaed4b1c643952f097a1388096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b84a52c9c8a21774ba71b187db7daaf4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e023824c97535246bc63e205ce25c62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a221482f6fed094f97f7731fe3bd058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 5130
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d2ad352a8c38b4eb6419f5770407eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983d3f33fb44be64e91993c87c369c37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e280456e251874db5ec791236c8bfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394223ccdd457604eac26fc511b93b4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9d1d5f5595edf41bd04b872ddf5796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11ff89b1a64f6645afffa7fb8089abe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_12
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b69d70471eb96a43a447d930316ce80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_13
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4908
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4679ca2c4c07e5b4ea8d95235c2d6e30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9220dae6684455a43a79b37ad089a55c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5674b79bd47f3f542a71306056148626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_16
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f23e04238d0b0148b3aa577414a94a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfff4c1a0ea276d48a37478d0a86494a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_18
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6a8c0191454af4392284b92e5bdd07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_19
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b2809c6984bf64baa338f14a567d0d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_20
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4686
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69727f154922b1940894068b0e47334f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe81009e9b6539b4a90f3309f14379d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5f47d3703204e4db0bef8c831c25fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_23
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcc5de59ff2a6749977f74d48cd93a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_24
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b628ecd7df3204d9dcdaa65f4ad167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_25
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e13ec24fd2cf14cbfedf96bdc3ca6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_26
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d8e5526d1b74e45a8cdfca71594781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_27
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4464
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6762b0f14fe392a4185e2a8450002a02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f83aa4c1e47f574c86d792038ad6492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9045984d99d76224283131ef94ecd397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_30
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65475927f6b63e4ea4517229cbf0a06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_31
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ac413dceda42343913461d2f79b1b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_32
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f9578c31676d6458c5eba255802e2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_33
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea9465deb68ad5469a487d18f4db4de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_34
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4242
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c00ccc0f0e1bf84b90c79e5124a6f6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20e41811075900469f78fcda454767b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_36
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf578b1d6ee23a445be96065f8bef22c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_37
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4b2a74f95eb7644ab420f6e24e76ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_38
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285e1066953b2b34b9c3d30a12003cc7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_39
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e137d97475a6b9447b0d1df3100b66bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_40
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4614f13358400e040bb3284a99c3d14c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_41
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 4020
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4372915220e1b40af0637c4ff5eb8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff611d21be8ee04cb8e92fd3fe723ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_43
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1f3f593886513419256d45ae24ff1d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_44
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7577fbe40e59d84da657f987e4c4823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_45
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c8601f0452b3b4e8e39bbb6f9c218b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_46
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9552b15a9a85174bb7dc1ca3fdc21ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_47
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be63025d053b2642b22f9a215f83d05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_48
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3798
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e90383e6f534424da65efdfc7570f18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef5537e756c0154997510e49715ab9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_50
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d7f3abcfbeb2740b0e7d0235af1612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_51
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c53dd2c3d58f54097f7e6c89a719bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_52
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20188b634bb5d444b876550823f329e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_53
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1a9d591c8b9fa46922d7ef6e39c53a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_54
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0ffcb5ffb626944994e405009bc0c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_55
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3576
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86901391e4e48f4aba2767da4ecb6b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f1d47cf407dad40853e13b4b7626c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_57
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8608d163d1dd3147ac6bf65cb437699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_58
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a614b38baaf01e84b9b4d7edbdcf30a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_59
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0670197b096e3345b472af97439d205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_60
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b838f05c95d30564894c5b66f153a5c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_61
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19df7b72024fb824d8aa2d6163d38bd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_62
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3354
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8758c333ddc4dd4185982cc8e7dc82c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f1c1f75d5556444a32631b19543e70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_64
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b31ae25edc18c374fbcd86dc369c55fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_65
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76fc6a7c77aeda41b6fe33822487cba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_66
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c94625c9c8ea44a8c26628c9d35607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_67
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf47d910fb85f6488d4deac7f987135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_68
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2ed97a67eab244db6a7da5d82d86e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_69
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 3132
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f10301f1e5dfe346b41a05c8665995c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e1bbc79011d0740a702b0143b42412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_71
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5677189b0740748bd37a1efa4f6a1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_72
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3d9adf554728c4bb02a116c05e0c09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_73
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41f320e6f254dd408da89cc340f3213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_74
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4501cf8ee7d44d348ad1e2baae1b4de9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_75
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbf74e9a8199f04fafea923cddf6955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_76
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2910
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e49201f1422ea643942d71918c620f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8d33bd7bdc9b845973869a8434eea0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_78
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85041223b154cf442aa8d6df7441f79b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_79
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3400867426327478c64ec15d510137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_80
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad6d7b6d2d881e40ac14afb37560478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_81
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452aecf7d4c1c00489944a3c641afbb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_82
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ab189756218214ea063b8a50178cd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_83
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2688
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a840b7e70c17d0746ad3f24d9efff720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4dfb52fbf81c3439d0a94822d03b19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_85
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec65b02bfd04874f854b63e6af88501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_86
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221c82db08afc5d45b1a2266740e3cea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_87
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476fdd38a88f34b43b9cf6a4ee1b7a15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_88
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517db9546ef74a542872f54734bcdd10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_89
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7747bfc5c0fe13a4e9616ef67afa2c61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_90
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2466
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7965010794cdb83418496ee9e2d2c849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc672671b2be2ab4ba7c5b437d152f6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_92
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fddf53c913c999840b839fd8871c9ae5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_93
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5404da3ddbbb4894f83dafd6ed9dbba1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_94
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0f9d8216afafe4980a5c35f722576c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_95
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a62de5ef9edd54da9146e76dd4f97d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_96
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82eae7c89971d4e49802a1eea4d213db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_97
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2244
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20db22c2b5091754198efcad197b8f1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459e3fa633b2aad46ac4f093c60bdc4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_99
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e269f63057c9dfe458471ddf76a528ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_100
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848e61b1ef92bc44f8db0eab2d0b137e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_101
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14003021d843fa54a92a6c272a6f66fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_102
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd4c8d1da4f9aa40a944cfdd838578b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_103
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222b4000005ce854db7ed8f4113f1032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_104
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2022
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0081ed7846f294f853237c89797f25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6831ec2c73af9a46a71c83a498fb63b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_106
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e40575d65674f47b829bc5401cb708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_107
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fafeb0687df344c40bbb76ed7cfbe67a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_108
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ebb5d189453364ebc3b21d2ca0ad72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_109
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2875b7a404953df47bda86820ae05cbb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_110
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41436783ba9528469a0f55b7e3d7df9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_111
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1800
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebc07654e8a57245a0e0ace1dd3880d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d341e08640c6554388e71a5602f9e9a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_113
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7934d7b4a479bba449d94810e3667733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_114
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b452d453d86d9874582dbd2ba370dfa6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_115
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea78e9f64e302134998947352d6a2759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_116
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf24227cb6d8384dbf42193f59e4226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_117
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7508a04d2bc16414b8e15fc9510039ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_118
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1578
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae31edd55296bec4a8af96fc203f8db7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_119
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf55a8dfbe01914da479038103af1d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_120
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff58dfb77ca2f6b40bcba4141a7fe3a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_121
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ed41c52f69aa74093a1c808ed44ff3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_122
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2957f9af8bfeb584e9b25129edb34670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_123
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5f0450ed482f6438c6d46d2a6059d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_124
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1356
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9cf9b985cd46dd4fb661673ca84b76f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_126
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13389372dfa8d69478ba787996a1aed6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_127
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda84f35a231b884285063379e6bffd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_128
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba5c7c5811be014cb655978089cda03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_129
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12d7bdaaee064a418d1d5f331af6b6f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_130
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa0f6f5844a6d5459c2982c5808e25f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_131
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1134
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f95240f54cdef84b9371325b304df9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_132
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 912
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e2d87faf5e64441b0e51faf0434406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_133
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 912
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14cd89fe02deae4ca6ceb3983df4426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_134
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 912
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09eda3a46de1ad4f9317ed06a7f900f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_135
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 912
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01230fef8b17cfc418f087d360f6492f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_136
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 912
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c75a6887f913745ab560b4f58fabb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_138
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb04db116617b84ab783d8eb251083d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_139
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933badeb11a435d4698add70ee005202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_140
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06be2e543ec5acf4dab43d599c37ac8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_141
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd48fb4a481b0b48b254ad851647a64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_142
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b12269eb51969546995199effd62319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_143
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc7f8596d4fc464ca70f3afc8db14c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_144
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 690
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250738a246b0b214aa6e39e31df9314a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_145
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c53e57daef913b240933fe5c584ea810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_146
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07b5728fa5d596458adbb4a142c44be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_147
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8467a036f889780479a8da54af611520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_148
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96a3bb73ce9c20498f7e4b708feb92c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_149
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1b3591dd374bc488b6e42230165203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_150
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa44d54c440968429cd2405e7dae5f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_151
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 468
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b6fd465b3e7644a9ae023566647a41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_152
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555815896afd5e54faeb3fc052ef0ad9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_153
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda33f2ec1ea51a43a0a98682dc443d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_154
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d48b8774e24054bafea8efc8968533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_155
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04385688bce2e004fa8d5dba1d93daf3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_156
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77718bdbc4612944c916711b39a3e21f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_157
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 246
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48ef7edbf601914e8295a4de0dd95ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_158
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e744868262cf504cbff6f07e2c55e3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_159
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676d4fe92986a214a8c42ae39d15ea05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_160
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3edb6d178f9a5734cab49bb38080e9f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_161
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a873f6dfc45b1a448bb43ae75f9fa22d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_162
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a19aeba7fcda02439c2e329ea44f422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_163
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766dcf2f08065184b9fe3b2713f795f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-v1.5-Sheet_V5_164
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 24
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b494da18a7137c341a5b65b0b71a3128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: dbce65d5b3c4254428af60575d2844fe
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

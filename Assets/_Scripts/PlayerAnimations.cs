@@ -5,14 +5,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerAnimations : PlayerInput
 {
-    public bool? _WasPlayerAnimationsInitialized
-    {
-        get; set;
-    }
-
     public static PlayerAnimations _PlayerAnimationsInstance
     {
         get; private set;
+    }
+    public bool? _WerePlayerAnimationsInitialized
+    {
+        get; set;
     }
 
     private bool _hasControlAlreadyBeenPressed = false;
@@ -32,18 +31,29 @@ public class PlayerAnimations : PlayerInput
     {
         if (CheckForSwordDrawnAnimation() == false)
         {
+            // There are 2 animation states, (sword drawn vs not drawn).
+            // both need to have the bools reset once the state changes
+            ResetSwordDrawnBools();
+
+            //Now check for all permitted animations in the 'not drawn' state.
             CheckForIdleAnimation();
             CheckForFallingAnimation();
             CheckForClimbingAnimation();
             CheckForRunningAnimation();
             CheckForGroundSlideAnimation();
             CheckForGrabbingAnimation();
-            CheckForSwingingAndJumpingAnimation();
+            CheckForJumpAnimations();
+            CheckForSwingingAnimation();
             CheckForWallSlideAnimation();
             CheckForSwimmingAnimations();
         }
         else
         {
+            // There are 2 animation states, (sword drawn vs not drawn).
+            // both need to have the bools reset once the state changes
+            ResetNotDrawnBools();
+
+            //Now check for all permitted animations in the 'sword drawn' state.
             CheckForIdleWithSwordAnimation();
             CheckForFallingWithSwordAnimation();
             CheckForRunningWithSwordAnimation();
@@ -55,21 +65,13 @@ public class PlayerAnimations : PlayerInput
 
     public void InitializePlayerAnimations()
     {
-        if (_WasInitialized == null || _WasInitialized == false)
-        {
-            base.Initialize();
-        }
-        if (_WasInputInitialized == null || _WasInputInitialized == false)
-        {
-            InitializeInput();
-        }
-
-        if (_WasPlayerAnimationsInitialized == null || _WasPlayerAnimationsInitialized == false)
+        if (_WerePlayerAnimationsInitialized == null || _WerePlayerAnimationsInitialized == false)
         {
             if (_PlayerAnimationsInstance != null && _PlayerAnimationsInstance != this)
             {
                 if (_PlayerAnimationsInstance is PlayerAnimations)
                 {
+                    Debug.LogWarning("Destroying PlayerAnimations");
                     Destroy(this);
                 }
             }
@@ -78,9 +80,18 @@ public class PlayerAnimations : PlayerInput
                 if (_PlayerAnimationsInstance is PlayerAnimations)
                 {
                     _PlayerAnimationsInstance = this;
-                    _WasPlayerAnimationsInitialized = true;
+                    _WerePlayerAnimationsInitialized = true;
+                    Debug.LogWarning("Setting PlayerAnimations");
                 }
             }
+        }
+        if (_WasInitialized == null || _WasInitialized == false)
+        {
+            base.Initialize();
+        }
+        if (_WasInputInitialized == null || _WasInputInitialized == false)
+        {
+            InitializeInput();
         }
         _hasControlAlreadyBeenPressed = false;
     }
@@ -119,6 +130,7 @@ public class PlayerAnimations : PlayerInput
         {
             //idle part two
             _Animator.SetBool("isJumping", false);
+            _Animator.SetBool("isDoubleJumping", false);
             _Animator.SetBool("isFalling", false);
         }
     }
@@ -130,6 +142,7 @@ public class PlayerAnimations : PlayerInput
             _hasControlAlreadyBeenPressed = false;
             _Animator.SetBool("isSwinging", false);
             _Animator.SetBool("isJumping", false);
+            _Animator.SetBool("isDoubleJumping", false);
             _Animator.SetBool("isFalling", false);
         }
         else if (_DataInstance._IsTouchingWater)
@@ -220,21 +233,34 @@ public class PlayerAnimations : PlayerInput
         }
     }
 
-    private void CheckForSwingingAndJumpingAnimation()
+    private void CheckForJumpAnimations()
     {
-        // Swinging, Jumping and Falling
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyUp(KeyCode.LeftControl))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             _Animator.SetBool("isRunning", false);
-            if (Input.GetKeyDown(KeyCode.Space))
+            Debug.LogWarning(PlayerData._DataInstance._JumpState + " = JumpState");
+            if (PlayerData._DataInstance._JumpState == JUMPSTATUS.NormalJump)
             {
                 _Animator.SetBool("isJumping", true);
+                _Animator.SetBool("isDoubleJumping", false);
                 _Animator.SetBool("isSwinging", false);
                 _Animator.SetBool("isClimbingLadder", false);
                 _Animator.SetBool("isGrounded", false);
-
             }
-            else if (Input.GetKeyDown(KeyCode.LeftControl) && _hasPlayerEnteredHookZone)
+            else if (PlayerData._DataInstance._JumpState == JUMPSTATUS.DoubleJump)
+            {
+                _Animator.SetBool("isDoubleJumping", true);
+            }
+        }
+    }
+
+    private void CheckForSwingingAnimation()
+    {
+        // Swinging, Jumping and Falling
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            _Animator.SetBool("isRunning", false);
+            if (Input.GetKeyDown(KeyCode.LeftControl) && _hasPlayerEnteredHookZone)
             {
                 // Keeps player from spamming the button
                 if (_hasControlAlreadyBeenPressed == false)
@@ -242,8 +268,8 @@ public class PlayerAnimations : PlayerInput
                     _hasControlAlreadyBeenPressed = true;
                     _Animator.SetBool("isSwinging", true);
                     _Animator.SetBool("isJumping", false);
+                    _Animator.SetBool("isDoubleJumping", false);
                 }
-
             }
             else if (Input.GetKeyUp(KeyCode.LeftControl) && _hasPlayerEnteredHookZone)
             {
@@ -252,6 +278,7 @@ public class PlayerAnimations : PlayerInput
                     _Animator.SetBool("isSwinging", false);
                     _Animator.SetBool("isJumping", true);
                     _Animator.SetBool("isGrounded", false);
+                    _Animator.SetBool("isDoubleJumping", false);
                 }
             }
         }
@@ -319,6 +346,29 @@ public class PlayerAnimations : PlayerInput
         {
             _Animator.SetBool("isInWater", false);
         }
+    }
+
+    private void ResetNotDrawnBools()
+    {
+        _Animator.SetBool("isRunning", false);
+        _Animator.SetBool("isSliding", false);
+        _Animator.SetBool("isWallSliding", false);
+        _Animator.SetBool("isFalling", false);
+        _Animator.SetBool("isSwinging", false);
+        _Animator.SetBool("isSwimming", false);
+        _Animator.SetBool("isDucking", false);
+        _Animator.SetBool("isGrounded", false);
+        _Animator.SetBool("isInWater", false);
+        _Animator.SetBool("isClimbingLadder", false);
+
+        bool jumping = _Animator.GetBool("isJumping");
+        if (jumping == true)
+        {
+            _Animator.SetBool("isJumpingWithSword", true);
+        }
+        _Animator.SetBool("isDoubleJumping", false);
+        _Animator.SetBool("isJumping", false);
+
     }
 
     //********************************************/
@@ -408,9 +458,9 @@ public class PlayerAnimations : PlayerInput
         }
     }
 
-     private void CheckForIdleWithSwordAnimation()
+    private void CheckForIdleWithSwordAnimation()
     {
-        if (_RigidBody.velocity.x == 0 || Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) < 0.1f)
+        if (_RigidBody.velocity.x == 0)
         {
             //Idle
             _Animator.SetBool("isRunningWithSword", false);
@@ -432,5 +482,20 @@ public class PlayerAnimations : PlayerInput
             _Animator.SetBool("isRunningWithSword", false);
             _Animator.SetBool("isJumpingWithSword", true);
         }
+    }
+
+    private void ResetSwordDrawnBools()
+    {
+        _Animator.SetBool("isRunningWithSword", false);
+        _Animator.SetBool("isGroundSlidingWithSword", false);
+        _Animator.SetBool("isWallSlidingWithSword", false);
+        _Animator.SetBool("isFallingWithSword", false);
+
+        bool jumpingWithSword = _Animator.GetBool("isJumpingWithSword");
+        if (jumpingWithSword == true)
+        {
+            _Animator.SetBool("isJumping", true);
+        }
+        _Animator.SetBool("isJumpingWithSword", false);
     }
 }
