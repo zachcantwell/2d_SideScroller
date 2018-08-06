@@ -69,9 +69,9 @@ public class WallSlide : PlayerInput
 
     void FixedUpdate()
     {
-        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbing && !_InputInstance._IsPlayerSwinging && !_DataInstance._IsTouchingLadder)
+        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbingObject && !_InputInstance._IsPlayerSwinging && !_DataInstance._IsTouchingLadder)
         {
-            if (_DataInstance._IsHorizontalToWall || _DataInstance._IsHorizontalToCorner)
+            if ((_DataInstance._IsHorizontalToWall || _DataInstance._IsHorizontalToCorner) && !_DataInstance._IsHorizontalToGrabableObject)
             {
                 if (_DataInstance._LastPlayerPosition.y > transform.position.y)
                 {
@@ -119,7 +119,7 @@ public class WallSlide : PlayerInput
 
     private void CheckToResetValues()
     {
-        if (!_DataInstance._IsTouchingLadder)
+        if (!_DataInstance._IsTouchingLadder && _hasStartedWallSliding == true)
         {
             if (_DataInstance._LastPlayerPosition.y < transform.position.y)
             {

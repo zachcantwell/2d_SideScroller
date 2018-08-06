@@ -17,7 +17,14 @@ public class PlayerData : MonoBehaviour
     {
         get; private set; 
     }
-
+    public bool _IsTouchingGrabbable
+    {
+        get; private set; 
+    }
+    public bool _IsTouchingCorner
+    {
+        get; private set; 
+    }
     //Horizontal Bools
     public bool _IsHorizontalToSomething
     {
@@ -38,6 +45,10 @@ public class PlayerData : MonoBehaviour
     public bool _IsHorizontalToGrabableObject
     {
         get; private set;
+    }
+    public GameObject _grabbedObject
+    {
+        get;set; 
     }
 
     //Above Bools
@@ -114,7 +125,14 @@ public class PlayerData : MonoBehaviour
     {
         get; private set; 
     }
-
+    public Vector2 _BoxColliderStandingDimensions
+    {
+        get; private set; 
+    }
+    public Vector2 _BoxColliderCrouchingDimensions
+    {
+        get; private set; 
+    }
     public float _DefaultGravityScale
     {
         get; private set; 
@@ -206,6 +224,8 @@ public class PlayerData : MonoBehaviour
         _PlayerBoxCollider = GetComponent<BoxCollider2D>();
         _PlayerCircleCollider = GetComponent<CircleCollider2D>();
         _DistanceJoint2D = GetComponent<DistanceJoint2D>();
+        _BoxColliderStandingDimensions = _PlayerBoxCollider.size; 
+        _BoxColliderCrouchingDimensions = new Vector2(_BoxColliderStandingDimensions.x/2.5f, _BoxColliderStandingDimensions.y);
         _LadderCollider = null;  
         _JumpState = JUMPSTATUS.None;
         SetBoolsToFalse();
@@ -634,6 +654,14 @@ public class PlayerData : MonoBehaviour
         {
             _IsTouchingWater = true; 
         }
+        if(other.gameObject.tag == "Grabbable")
+        {
+            _IsTouchingGrabbable = true;
+        }
+        if(other.gameObject.tag == "Corner")
+        {
+            _IsTouchingCorner = true; 
+        }
 	}
 
     void OnTriggerStay2D(Collider2D other)
@@ -641,6 +669,14 @@ public class PlayerData : MonoBehaviour
         if(other.gameObject.tag == "Water")
         {
             _IsTouchingWater = true; 
+        }
+        if(other.gameObject.tag == "Grabbable")
+        {
+            _IsTouchingGrabbable = true;
+        }
+        if(other.gameObject.tag == "Corner")
+        {
+            _IsTouchingCorner = true; 
         }
     }
 
@@ -651,10 +687,17 @@ public class PlayerData : MonoBehaviour
 			_IsTouchingLadder = false; 
             _LadderCollider = null; 
 		}
-
         if(other.gameObject.tag == "Water")
         {
             _IsTouchingWater = false; 
+        }
+        if(other.gameObject.tag == "Grabbable")
+        {
+            _IsTouchingGrabbable = false;
+        }
+        if(other.gameObject.tag == "Corner")
+        {
+            _IsTouchingCorner = false; 
         }
 	}
 }

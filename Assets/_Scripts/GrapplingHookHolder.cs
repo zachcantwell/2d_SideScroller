@@ -9,11 +9,13 @@ public class GrapplingHookHolder : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<PlayerAnimations>().HasPlayerEnteredHookZone(true);
-            other.GetComponent<GrapplingHook>().HasPlayerEnteredHookHolderZone(true);
-            other.GetComponent<GrapplingHook>().SetGrapplingHookHolder(this);
-            //	PlayerControllerV2._playerInstance.HasPlayerEnteredHolderZone(true);
-            //PlayerControllerV2._playerInstance.GetGrapplingHookHolder(this);
+            int layer = LayerMask.NameToLayer("Player");
+            if (other.gameObject.layer == layer)
+            {
+                other.GetComponent<PlayerAnimations>().HasPlayerEnteredHookZone(true);
+                other.GetComponent<GrapplingHook>().HasPlayerEnteredHookHolderZone(true);
+                other.GetComponent<GrapplingHook>().SetGrapplingHookHolder(this);
+            }
         }
     }
 
@@ -21,9 +23,13 @@ public class GrapplingHookHolder : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<GrapplingHook>().HasPlayerEnteredHookHolderZone(false);
-            other.GetComponent<PlayerAnimations>().HasPlayerEnteredHookZone(false);
-            // PlayerControllerV2._playerInstance.HasPlayerEnteredHolderZone(false);
+            int layer = LayerMask.NameToLayer("Player");
+
+            if (other.gameObject.layer == layer)
+            {
+                other.GetComponent<GrapplingHook>().HasPlayerEnteredHookHolderZone(false);
+                other.GetComponent<PlayerAnimations>().HasPlayerEnteredHookZone(false);
+            }
         }
     }
 

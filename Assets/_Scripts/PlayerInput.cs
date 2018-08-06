@@ -15,11 +15,19 @@ public class PlayerInput : PlayerData
         get; set;
     }
 
-    public bool _IsPlayerSwordDrawn
+    public bool _IsPlayerDodging
     {
         get; set; 
     }
 
+    public bool _IsPlayerSwordDrawn
+    {
+        get; set;
+    }
+    public bool _IsPlayerAirAttacking
+    {
+        get; set;
+    }
     public bool _IsPlayerGroundSliding
     {
         get; set;
@@ -45,9 +53,19 @@ public class PlayerInput : PlayerData
         get; set;
     }
 
-    public bool _IsPlayerGrabbing
+    public bool _IsPlayerCrouching
+    {
+        get; set; 
+    }
+
+    public bool _IsPlayerGrabbingObject
     {
         get; set;
+    }
+    
+    public bool _IsPlayerGrabbingCorner
+    {
+        get; set; 
     }
 
     public bool _IsPlayerClimbingUpLadder
@@ -81,6 +99,14 @@ public class PlayerInput : PlayerData
     public static PlayerInput _InputInstance
     {
         get; private set;
+    }
+    public bool _IsPlayerAttacking
+    {
+        get; private set;
+    }
+    public bool _IgnorePlayerInput
+    {
+        get; set;
     }
 
     private const float _climbThreshold = 0.15f;
@@ -116,53 +142,89 @@ public class PlayerInput : PlayerData
     {
         _IsPlayerJumping = false;
         _IsPlayerRunning = false;
+        _IsPlayerDodging = false; 
         _IsPlayerSwinging = false;
-        _IsPlayerGrabbing = false;
+        _IsPlayerGrabbingObject = false;
+        _IsPlayerGrabbingCorner = false;
         _IsPlayerClimbingUpLadder = false;
         _IsPlayerClimbingDownLadder = false;
         _IsPlayerWallSliding = false;
         _IsPlayerGroundSliding = false;
         _IsPlayerSwimming = false;
-        _IsPlayerSwordDrawn = false; 
+        _IsPlayerSwordDrawn = false;
+        _IsPlayerCrouching = false; 
+        _IsPlayerAttacking = false;
         _WasDirectionChanged = false;
         _WasInputInitialized = true;
+        _IgnorePlayerInput = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _IsPlayerRunning = IsPlayerRunning();
-        _IsPlayerJumping = IsPlayerJumping();
-        _IsPlayerSwimming = IsPlayerSwimming();
-        _IsPlayerSwinging = IsPlayerSwinging();
-        _IsPlayerGrabbing = IsPlayerGrabbing();
-        _IsPlayerWallSliding = IsPlayerWallSliding();
-        _IsPlayerClimbingUpLadder = IsPlayerClimbingUpLadder();
-        _IsPlayerClimbingDownLadder = IsPlayerClimbingDownLadder();
-        _IsPlayerJumpingOffLadder = IsPlayerJumpingOffLadder();
-        _IsPlayerGroundSliding = IsPlayerGroundSliding();
-
-        // Can ONLY trigger the sword drawing if the player is idle or running
-        if(!_IsPlayerJumping && !_IsPlayerSwimming && !_IsPlayerSwinging && _DataInstance._IsAboveSomething
-            && !_IsPlayerGrabbing && !_IsPlayerWallSliding && !_IsPlayerClimbingUpLadder 
-            && !_IsPlayerClimbingDownLadder && !_IsPlayerJumpingOffLadder && !_IsPlayerGroundSliding)
-            {
-               DidPlayerDrawSword();
-            }
-
-        _GetHorizontalAxisValue = CrossPlatformInputManager.GetAxis("Horizontal");
-        _GetVerticalAxisValue = CrossPlatformInputManager.GetAxis("Vertical");
-
-        if ((_IsPlayerRunning || _IsPlayerJumping || _IsPlayerGrabbing || _IsPlayerWallSliding) && !_IsPlayerSwinging)
+        if (_IgnorePlayerInput == false)
         {
-            if (_IsPlayerWallSliding)
+            _IsPlayerRunning = IsPlayerRunning();
+            _IsPlayerJumping = IsPlayerJumping();
+            _IsPlayerSwimming = IsPlayerSwimming();
+            _IsPlayerSwinging = IsPlayerSwinging();
+            _IsPlayerGrabbingObject = IsPlayerGrabbingObject();
+            _IsPlayerGrabbingCorner = IsPlayerGrabbingCorner();
+            _IsPlayerWallSliding = IsPlayerWallSliding();
+            _IsPlayerClimbingUpLadder = IsPlayerClimbingUpLadder();
+            _IsPlayerClimbingDownLadder = IsPlayerClimbingDownLadder();
+            _IsPlayerJumpingOffLadder = IsPlayerJumpingOffLadder();
+            _IsPlayerGroundSliding = IsPlayerGroundSliding();
+
+
+            // Can ONLY trigger the sword drawing if the player is idle or running
+            if (!_IsPlayerSwimming && !_IsPlayerSwinging && !_IsPlayerGrabbingObject && !_IsPlayerJumpingOffLadder
+                && !_IsPlayerWallSliding && !_IsPlayerClimbingUpLadder && !_IsPlayerClimbingDownLadder && !_IsPlayerGroundSliding)
             {
-                _WasDirectionChanged = false;
+                DidPlayerDrawSword();
+                DidPlayerCrouch();
+                _IsPlayerDodging = IsPlayerDodging();
             }
-            else
+
+            _IsPlayerAttacking = IsPlayerAttacking();
+            _IsPlayerAirAttacking = IsPlayerAirAttacking();
+
+            _GetHorizontalAxisValue = CrossPlatformInputManager.GetAxis("Horizontal");
+            _GetVerticalAxisValue = CrossPlatformInputManager.GetAxis("Vertical");
+
+            if ((_IsPlayerRunning || _IsPlayerJumping || _IsPlayerGrabbingObject || _IsPlayerWallSliding) && !_IsPlayerSwinging)
             {
-                _WasDirectionChanged = HasChangedDirection();
+                if (_IsPlayerWallSliding)
+                {
+                    _WasDirectionChanged = false;
+                }
+                else
+                {
+                    _WasDirectionChanged = HasChangedDirection();
+                }
             }
+        }
+    }
+
+    private bool IsPlayerDodging()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("Dodge") && _DataInstance._IsAboveSomething)
+        {
+            return true;
+        }
+        return false; 
+    }
+
+    private void DidPlayerCrouch()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("Crouch"))
+        {
+            _IsPlayerCrouching = !_IsPlayerCrouching; 
+            _DataInstance._PlayerBoxCollider.size =  _DataInstance._BoxColliderCrouchingDimensions; 
+        }
+        else
+        {
+            _DataInstance._PlayerBoxCollider.size =  _DataInstance._BoxColliderStandingDimensions;
         }
     }
 
@@ -175,8 +237,8 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerGroundSliding()
     {
-        if (CrossPlatformInputManager.GetButtonDown("GroundSlide") && Mathf.Abs(_RigidBody.velocity.x) > 0
-            && (_DataInstance._IsAboveCorner || _DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject))
+        if (CrossPlatformInputManager.GetButtonDown("GroundSlide") && !_IsPlayerCrouching &&
+            Mathf.Abs(_RigidBody.velocity.x) > 0 && (_DataInstance._IsAboveCorner || _DataInstance._IsAboveGround))
         {
             return true;
         }
@@ -189,7 +251,26 @@ public class PlayerInput : PlayerData
         {
             float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
             bool isPlayerMoving = Mathf.Abs(xPos) > Mathf.Epsilon;
+            _IsPlayerCrouching = false; 
             return isPlayerMoving;
+        }
+        return false;
+    }
+
+    private bool IsPlayerAttacking()
+    {
+        if (_IsPlayerSwordDrawn && CrossPlatformInputManager.GetButtonDown("Attack01"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool IsPlayerAirAttacking()
+    {
+        if (_IsPlayerAttacking && !_DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater && !_IsPlayerWallSliding)
+        {
+            return true;
         }
         return false;
     }
@@ -211,7 +292,7 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerJumping()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && !_IsPlayerCrouching)
         {
             return true;
         }
@@ -220,7 +301,7 @@ public class PlayerInput : PlayerData
 
     private bool IsPlayerJumpingOffLadder()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && _DataInstance._IsTouchingLadder)
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && _DataInstance._IsTouchingLadder && !_IsPlayerCrouching)
         {
             return true;
         }
@@ -236,16 +317,30 @@ public class PlayerInput : PlayerData
         return false;
     }
 
-    private bool IsPlayerGrabbing()
+    private bool IsPlayerGrabbingObject()
     {
         // Cant perform this function if sword is drawn
-        if(_IsPlayerSwordDrawn)
+        if (_IsPlayerSwordDrawn || _DataInstance._IsTouchingWater || _IsPlayerCrouching)
+        {
+            return false;
+        }
+        if (CrossPlatformInputManager.GetButton("Grab") && 
+            (_DataInstance._IsHorizontalToGrabableObject || _DataInstance._grabbedObject != null))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool IsPlayerGrabbingCorner()
+    {
+        if(_IsPlayerSwordDrawn || _IsPlayerCrouching)
         {
             return false; 
         }
-        if (CrossPlatformInputManager.GetButton("Grab"))
+        if(CrossPlatformInputManager.GetButton("Grab") && _DataInstance._IsHorizontalToCorner)
         {
-            return true;
+            return true; 
         }
         return false;
     }
@@ -253,9 +348,9 @@ public class PlayerInput : PlayerData
     private bool IsPlayerClimbingUpLadder()
     {
         // Cant perform this function if sword is drawn
-        if(_IsPlayerSwordDrawn)
+        if (_IsPlayerSwordDrawn || _IsPlayerCrouching)
         {
-            return false; 
+            return false;
         }
         float yPos = CrossPlatformInputManager.GetAxisRaw("Vertical");
         bool isPlayerPushingUp = yPos > _climbThreshold;
@@ -265,9 +360,9 @@ public class PlayerInput : PlayerData
     private bool IsPlayerClimbingDownLadder()
     {
         // Cant perform this function if sword is drawn
-        if(_IsPlayerSwordDrawn)
+        if (_IsPlayerSwordDrawn || _IsPlayerCrouching)
         {
-            return false; 
+            return false;
         }
         float yPos = CrossPlatformInputManager.GetAxisRaw("Vertical");
         bool isPlayerPushingDown = yPos < -_climbThreshold;
@@ -276,9 +371,16 @@ public class PlayerInput : PlayerData
 
     private void DidPlayerDrawSword()
     {
-        if(CrossPlatformInputManager.GetButtonDown("DrawSword"))
+        if (CrossPlatformInputManager.GetButtonDown("DrawSword"))
         {
-            _IsPlayerSwordDrawn = !_IsPlayerSwordDrawn;
+            if (_DataInstance._IsTouchingWater)
+            {
+                return;
+            }
+            else
+            {
+                _IsPlayerSwordDrawn = !_IsPlayerSwordDrawn;
+            }
         }
     }
 

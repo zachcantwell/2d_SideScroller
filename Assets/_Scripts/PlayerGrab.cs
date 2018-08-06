@@ -169,7 +169,7 @@ public class PlayerGrab : PlayerInput
     private void ThrowObject()
     {
 
-        if ((!_InputInstance._IsPlayerGrabbing) && _hit.collider != null)
+        if ((!_InputInstance._IsPlayerGrabbingObject) && _hit.collider != null)
         {
             _wasGrabbed = false;
             _grabbedRigidbody.freezeRotation = false;
@@ -199,6 +199,7 @@ public class PlayerGrab : PlayerInput
             _offset = _baseOffset;
             _hit = new RaycastHit2D();
             _hitObject = null;
+            _DataInstance._grabbedObject = null;
             _grabbedRigidbody = null;
         }
     }
@@ -236,7 +237,7 @@ public class PlayerGrab : PlayerInput
 
     private void GrabObject()
     {
-        if (_InputInstance._IsPlayerGrabbing)
+        if (_InputInstance._IsPlayerGrabbingObject)
         {
             Physics2D.queriesStartInColliders = false;
 
@@ -250,6 +251,7 @@ public class PlayerGrab : PlayerInput
                 Debug.LogWarning("Grabbing Object");
                 _wasGrabbed = true;
                 _hitObject = _hit.transform.gameObject;
+                _DataInstance._grabbedObject = _hitObject; 
                 _grabbedRigidbody = _hitObject.GetComponent<Rigidbody2D>();
                 _defaultObjectGravityScale = _grabbedRigidbody.gravityScale;
                 _grabbedRigidbody.freezeRotation = true;

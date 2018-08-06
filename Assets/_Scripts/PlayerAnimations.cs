@@ -13,9 +13,16 @@ public class PlayerAnimations : PlayerInput
     {
         get; set;
     }
+    public static int _GetAirAttackCounter
+    {
+        get; private set;
+    }
 
     private bool _hasControlAlreadyBeenPressed = false;
     private bool _hasPlayerEnteredHookZone = false;
+    private float _attackTimer = 0f;
+    private float _airAttackTimer = 0f;
+    private const float _attackTimerOffset = 0.25f;
 
     void Awake()
     {
@@ -29,38 +36,22 @@ public class PlayerAnimations : PlayerInput
 
     private void AnimationStateController()
     {
-        if (CheckForSwordDrawnAnimation() == false)
-        {
-            // There are 2 animation states, (sword drawn vs not drawn).
-            // both need to have the bools reset once the state changes
-            ResetSwordDrawnBools();
-
-            //Now check for all permitted animations in the 'not drawn' state.
-            CheckForIdleAnimation();
-            CheckForFallingAnimation();
-            CheckForClimbingAnimation();
-            CheckForRunningAnimation();
-            CheckForGroundSlideAnimation();
-            CheckForGrabbingAnimation();
-            CheckForJumpAnimations();
-            CheckForSwingingAnimation();
-            CheckForWallSlideAnimation();
-            CheckForSwimmingAnimations();
-        }
-        else
-        {
-            // There are 2 animation states, (sword drawn vs not drawn).
-            // both need to have the bools reset once the state changes
-            ResetNotDrawnBools();
-
-            //Now check for all permitted animations in the 'sword drawn' state.
-            CheckForIdleWithSwordAnimation();
-            CheckForFallingWithSwordAnimation();
-            CheckForRunningWithSwordAnimation();
-            CheckForGroundSlidingWithSwordAnimation();
-            CheckForJumpingWithSwordAnimation();
-            CheckForWallSlidingWithSwordAnimation();
-        }
+        CheckForDodgingAnimations();
+        CheckForSwordDrawnAnimation();
+        CheckForIdleAnimation();
+        CheckForFallingAnimation();
+        CheckForClimbingAnimation();
+        CheckForRunningAnimation();
+        CheckForCrouchingAnimations();
+        CheckForGroundSlideAnimation();
+        CheckForGrabbingAnimation();
+        CheckForCornerGrabAnimations();
+        CheckForJumpAnimations();
+        CheckForSwingingAnimation();
+        CheckForWallSlideAnimation();
+        CheckForSwimmingAnimations();
+        CheckForSwordGroundAttackAnimation();
+        CheckForSwordAirAttackAnimation();
     }
 
     public void InitializePlayerAnimations()
@@ -121,10 +112,10 @@ public class PlayerAnimations : PlayerInput
 
     private void CheckForIdleAnimation()
     {
-        if (_RigidBody.velocity.x == 0 || Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) < 0.1f)
+        if (_RigidBody.velocity.x == 0 || Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) < 0.05f)
         {
             //Idle
-            _Animator.SetBool("isRunning", false);
+            _Animator.SetBool("isWalkingRunningSprinting", false);
         }
         if (_RigidBody.velocity.y == 0)
         {
@@ -155,13 +146,63 @@ public class PlayerAnimations : PlayerInput
         }
     }
 
+    private void CheckForCrouchingAnimations()
+    {
+        if (_InputInstance._IsPlayerCrouching)
+        {
+            if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f)
+            {
+                _Animator.SetBool("isCrouchingMove", true);
+                _Animator.SetBool("isCrouchingIdle", false);
+            }
+            else
+            {
+                _Animator.SetBool("isCrouchingMove", false);
+                _Animator.SetBool("isCrouchingIdle", true);
+            }
+        }
+        else
+        {
+            _Animator.SetBool("isCrouchingMove", false);
+            _Animator.SetBool("isCrouchingIdle", false);
+        }
+    }
+
     private void CheckForRunningAnimation()
     {
-        if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f
-            && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+        float xAxis = Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal"));
+
+        if (xAxis > 0.05f)
         {
-            _Animator.SetBool("isRunning", true);
-            _Animator.SetBool("isGrounded", true);
+            _Animator.SetBool("isWalkingRunningSprinting", true);
+            if (xAxis > 0.05f && xAxis < 0.25f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+            {
+                _Animator.SetBool("isWalking", true);
+                _Animator.SetBool("isRunning", false);
+                _Animator.SetBool("isSprinting", false);
+                _Animator.SetBool("isGrounded", true);
+            }
+            else if(xAxis > 0.25f && xAxis < 0.80f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+            {
+                _Animator.SetBool("isWalking", false);
+                _Animator.SetBool("isRunning", true);
+                _Animator.SetBool("isSprinting", false);
+                _Animator.SetBool("isGrounded", true);
+            }
+            else if(xAxis > 0.8f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+            {
+                _Animator.SetBool("isWalking", false);
+                _Animator.SetBool("isRunning", false);
+                _Animator.SetBool("isSprinting", true);
+                _Animator.SetBool("isGrounded", true);
+            }
+        }
+        else
+        {
+            _Animator.SetBool("isWalkingRunningSprinting", false);
+            _Animator.SetBool("isWalking", false);
+            _Animator.SetBool("isRunning", false);
+            _Animator.SetBool("isSprinting", false);
         }
     }
 
@@ -206,7 +247,8 @@ public class PlayerAnimations : PlayerInput
 
     private void CheckForGrabbingAnimation()
     {
-        if (CrossPlatformInputManager.GetButton("Grab"))
+        if (CrossPlatformInputManager.GetButton("Grab") &&
+        (_DataInstance._IsHorizontalToGrabableObject || _DataInstance._grabbedObject != null))
         {
             _Animator.SetBool("isGrabbing", true);
         }
@@ -224,11 +266,17 @@ public class PlayerAnimations : PlayerInput
             if (CrossPlatformInputManager.GetButtonDown("GroundSlide") && Mathf.Abs(_RigidBody.velocity.x) > 0
              && (_DataInstance._IsAboveCorner || _DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject))
             {
+                 Debug.LogWarning("Inside GroundSlideAnimation() == true");
                 _Animator.SetBool("isSliding", true);
+                _Animator.SetBool("isWalkingRunningSprinting", false);
+                _Animator.SetBool("isRunning", false);
+                _Animator.SetBool("isSprinting", false);
+                _Animator.SetBool("isWalking", false);
             }
-            else
+            if(AnimationEventReciever._isItTheLastFrameOfGroundSliding)
             {
-                _Animator.SetBool("isSliding", false);
+                _Animator.SetBool("isSliding",false);
+                AnimationEventReciever._isItTheLastFrameOfGroundSliding = false; 
             }
         }
     }
@@ -237,8 +285,7 @@ public class PlayerAnimations : PlayerInput
     {
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
-            _Animator.SetBool("isRunning", false);
-            Debug.LogWarning(PlayerData._DataInstance._JumpState + " = JumpState");
+            _Animator.SetBool("isWalkingRunningSprinting", false);
             if (PlayerData._DataInstance._JumpState == JUMPSTATUS.NormalJump)
             {
                 _Animator.SetBool("isJumping", true);
@@ -257,9 +304,9 @@ public class PlayerAnimations : PlayerInput
     private void CheckForSwingingAnimation()
     {
         // Swinging, Jumping and Falling
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftControl))
         {
-            _Animator.SetBool("isRunning", false);
+            _Animator.SetBool("isWalkingRunningSprinting", false);
             if (Input.GetKeyDown(KeyCode.LeftControl) && _hasPlayerEnteredHookZone)
             {
                 // Keeps player from spamming the button
@@ -276,18 +323,48 @@ public class PlayerAnimations : PlayerInput
                 if (!_DataInstance._IsAboveSomething)
                 {
                     _Animator.SetBool("isSwinging", false);
-                    _Animator.SetBool("isJumping", true);
+                    _Animator.SetBool("isJumping", false);
                     _Animator.SetBool("isGrounded", false);
                     _Animator.SetBool("isDoubleJumping", false);
                 }
+            }
+            else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.Space))
+            {
+                _Animator.SetBool("isSwinging", false);
+                _Animator.SetBool("isJumping", false);
+                _Animator.SetBool("isGrounded", false);
+                _Animator.SetBool("isDoubleJumping", false);
+            }
+            else if (Input.GetKey(KeyCode.LeftControl) && !_hasPlayerEnteredHookZone)
+            {
+                _Animator.SetBool("isSwinging", false);
             }
         }
 
     }
 
+    private void CheckForCornerGrabAnimations()
+    {
+        if (CornerGrab._CORNERSTATUS == CornerGrab.CornerGrabStatus.GrabCorner ||
+            CornerGrab._CORNERSTATUS == CornerGrab.CornerGrabStatus.HangFromCorner)
+        {
+            _Animator.SetBool("isHanging", true);
+
+        }
+        else if (CornerGrab._CORNERSTATUS == CornerGrab.CornerGrabStatus.ClimbUpOnCorner)
+        {
+            _Animator.SetBool("isClimbingOntopOfCorner", true);
+        }
+        else
+        {
+            _Animator.SetBool("isClimbingOntopOfCorner", false);
+            _Animator.SetBool("isHanging", false);
+        }
+    }
+
     private void CheckForWallSlideAnimation()
     {
-        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbing && !_InputInstance._IsPlayerSwinging)
+        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbingObject && !_InputInstance._IsPlayerSwinging)
         {
             if (_DataInstance._IsHorizontalToWall || _DataInstance._IsHorizontalToCorner)
             {
@@ -325,26 +402,50 @@ public class PlayerAnimations : PlayerInput
         }
     }
 
+    private void CheckForDodgingAnimations()
+    {
+        if (_InputInstance._IsPlayerDodging)
+        {
+            if (AnimationEventReciever._isItTheFirstFrameOfDodging)
+            {
+                AnimationEventReciever._isItTheFirstFrameOfDodging = false;
+                _SpriteRenderer.flipX = !_SpriteRenderer.flipX;
+            }
+            _Animator.SetBool("isDodging", true);
+        }
+        else if (AnimationEventReciever._isItTheLastFrameOfDodging)
+        {
+            AnimationEventReciever._isItTheLastFrameOfDodging = false;
+            _Animator.SetBool("isDodging", false);
+        }
+    }
+
     private void CheckForSwimmingAnimations()
     {
         if (_DataInstance._IsTouchingWater)
         {
             _Animator.SetBool("isInWater", true);
+            _Animator.SetBool("isGrounded", false);
+            _Animator.SetBool("isCrouchingMove", false);
+            _Animator.SetBool("isCrouchingIdle", false);
 
             if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f)
             {
                 //This triggers the Swimming Animation
                 _Animator.SetBool("isSwimming", true);
+                _Animator.SetBool("isJumping", false);
             }
             else
             {
                 //This triggers the IdleInWater Animation
                 _Animator.SetBool("isSwimming", false);
+                _Animator.SetBool("isJumping", false);
             }
         }
         else
         {
             _Animator.SetBool("isInWater", false);
+            _Animator.SetBool("isSwimming", false);
         }
     }
 
@@ -357,9 +458,10 @@ public class PlayerAnimations : PlayerInput
         _Animator.SetBool("isSwinging", false);
         _Animator.SetBool("isSwimming", false);
         _Animator.SetBool("isDucking", false);
-        _Animator.SetBool("isGrounded", false);
         _Animator.SetBool("isInWater", false);
         _Animator.SetBool("isClimbingLadder", false);
+        _Animator.SetBool("isWalkingRunningSprinting", false);
+
 
         bool jumping = _Animator.GetBool("isJumping");
         if (jumping == true)
@@ -368,134 +470,74 @@ public class PlayerAnimations : PlayerInput
         }
         _Animator.SetBool("isDoubleJumping", false);
         _Animator.SetBool("isJumping", false);
-
     }
 
-    //********************************************/
-    // All Sword Drawn Animations are below here!!! 
-    //********************************************/
 
-    private void CheckForFallingWithSwordAnimation()
+    private void CheckForSwordGroundAttackAnimation()
     {
-        if (_DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject || _DataInstance._IsAboveCorner)
+        if (_InputInstance._IsPlayerAttacking)
         {
-            _Animator.SetBool("isJumpingWithSword", false);
-            _Animator.SetBool("isFallingWithSword", false);
-        }
-        else if (_DataInstance._IsTouchingWater)
-        {
-            _Animator.SetBool("isFallingWithSword", false);
-        }
-        else
-        {
-            _Animator.SetBool("isFallingWithSword", true);
-        }
-    }
-
-    private void CheckForGroundSlidingWithSwordAnimation()
-    {
-        //Using Get Key will let you slide indefinitely
-        if (!_DataInstance._IsTouchingWater)
-        {
-            if (CrossPlatformInputManager.GetButtonDown("GroundSlide") && Mathf.Abs(_RigidBody.velocity.x) > 0
-             && (_DataInstance._IsAboveCorner || _DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject))
+            if (AnimationEventReciever._attackCounter == 1)
             {
-                _Animator.SetBool("isGroundSlidingWithSword", true);
+                if (Time.timeSinceLevelLoad > _attackTimer)
+                {
+                    _Animator.SetInteger("groundAttackCounter", 1);
+                }
             }
             else
             {
-                _Animator.SetBool("isGroundSlidingWithSword", false);
-            }
-        }
-    }
-
-    private void CheckForRunningWithSwordAnimation()
-    {
-        if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f
-            && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
-        {
-            _Animator.SetBool("isRunningWithSword", true);
-        }
-    }
-
-    private void CheckForWallSlidingWithSwordAnimation()
-    {
-        if (_InputInstance._IsPlayerWallSliding && !_InputInstance._IsPlayerGrabbing && !_InputInstance._IsPlayerSwinging)
-        {
-            if (_DataInstance._IsHorizontalToWall || _DataInstance._IsHorizontalToCorner)
-            {
-                if (_DataInstance._LastPlayerPosition.y > transform.position.y)
-                {
-                    if (!_DataInstance._IsAboveGround && !_DataInstance._IsTouchingWater && !_DataInstance._IsTouchingLadder)
-                    {
-                        _Animator.SetBool("isWallSlidingWithSword", true);
-                    }
-                }
+                _attackTimer = Time.timeSinceLevelLoad + _attackTimerOffset;
+                _Animator.SetInteger("groundAttackCounter", 0);
             }
         }
         else
         {
-            if (_InputInstance._GetHorizontalAxisValue < 0.1f)
+            if (AnimationEventReciever._attackCounter == 0)
             {
-                _Animator.SetBool("isWallSlidingWithSword", false);
-            }
-            if (_DataInstance._LastPlayerPosition.y < transform.position.y)
-            {
-                _Animator.SetBool("isWallSlidingWithSword", false);
-            }
-            else if (_InputInstance._IsPlayerJumping)
-            {
-                _Animator.SetBool("isWallSlidingWithSword", false);
-            }
-            else if (_DataInstance._IsAboveGround || _DataInstance._IsAboveCorner)
-            {
-                _Animator.SetBool("isWallSlidingWithSword", false);
-            }
-            else if (_DataInstance._IsTouchingWater || _DataInstance._IsTouchingLadder)
-            {
-                _Animator.SetBool("isWallSlidingWithSword", false);
+                _Animator.SetInteger("groundAttackCounter", 0);
             }
         }
     }
 
-    private void CheckForIdleWithSwordAnimation()
+
+    private void CheckForSwordAirAttackAnimation()
     {
-        if (_RigidBody.velocity.x == 0)
+        if (_InputInstance._IsPlayerAirAttacking)
         {
-            //Idle
-            _Animator.SetBool("isRunningWithSword", false);
+            if (_DataInstance._IsAboveSomething)
+            {
+                _Animator.SetBool("isFalling", false);
+            }
+            else
+            {
+                if (AnimationEventReciever._aerialAttackCounter == 1)
+                {
+                    _Animator.SetTrigger("airAttackTrigger");
+                    _Animator.SetInteger("airAttackCounter", 1);
+                }
+                else if (AnimationEventReciever._aerialAttackCounter == 3)
+                {
+                    _Animator.SetInteger("airAttackCounter", 3);
+                }
+                else if (AnimationEventReciever._aerialAttackCounter == 4)
+                {
+                    _Animator.SetInteger("airAttackCounter", 4);
+                }
+            }
+            _GetAirAttackCounter = _Animator.GetInteger("airAttackCounter");
         }
-
-        if (_RigidBody.velocity.y == 0)
+        else
         {
-            //idle part two
-            _Animator.SetBool("isJumpingWithSword", false);
-            _Animator.SetBool("isFallingWithSword", false);
+            if (AnimationEventReciever._aerialAttackCounter == 0)
+            {
+                _Animator.SetInteger("airAttackCounter", 0);
+            }
+            else if (PlayerAttacks._isAirAttackGrounded)
+            {
+                _Animator.SetBool("isFalling", false);
+            }
         }
     }
 
-    private void CheckForJumpingWithSwordAnimation()
-    {
-        // Swinging, Jumping and Falling
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _Animator.SetBool("isRunningWithSword", false);
-            _Animator.SetBool("isJumpingWithSword", true);
-        }
-    }
 
-    private void ResetSwordDrawnBools()
-    {
-        _Animator.SetBool("isRunningWithSword", false);
-        _Animator.SetBool("isGroundSlidingWithSword", false);
-        _Animator.SetBool("isWallSlidingWithSword", false);
-        _Animator.SetBool("isFallingWithSword", false);
-
-        bool jumpingWithSword = _Animator.GetBool("isJumpingWithSword");
-        if (jumpingWithSword == true)
-        {
-            _Animator.SetBool("isJumping", true);
-        }
-        _Animator.SetBool("isJumpingWithSword", false);
-    }
 }

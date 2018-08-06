@@ -19,6 +19,7 @@ public class LadderClimb : PlayerInput
     private bool _IsPlayerClimbingUp;
     private bool _IsPlayerClimbingDown;
     private bool _didPlayerJumpFromLadder;
+    private bool _wereLadderValuesReset;
     private float _ignoreClimbTimer;
     private const float _ignoreClimbOffset = 0.5f;
 
@@ -54,8 +55,9 @@ public class LadderClimb : PlayerInput
         _IsPlayerClimbingDown = false;
         _IsPlayerClimbingUp = false;
         _didPlayerJumpFromLadder = false;
+        _wereLadderValuesReset = false;
         _ignoreClimbTimer = 0f;
-        Physics2D.IgnoreLayerCollision(9,10,true);
+        Physics2D.IgnoreLayerCollision(9, 10, true);
     }
 
     void Awake()
@@ -102,6 +104,7 @@ public class LadderClimb : PlayerInput
 
     private void ClimbUpLadder()
     {
+        _wereLadderValuesReset = false; 
         _RigidBody.constraints = RigidbodyConstraints2D.None;
         _RigidBody.freezeRotation = true;
         _RigidBody.gravityScale = 0f;
@@ -118,6 +121,7 @@ public class LadderClimb : PlayerInput
 
     private void ClimbDownLadder()
     {
+        _wereLadderValuesReset = false; 
         _RigidBody.constraints = RigidbodyConstraints2D.None;
         _RigidBody.freezeRotation = true;
         _RigidBody.gravityScale = 0f;
@@ -126,15 +130,20 @@ public class LadderClimb : PlayerInput
 
     private void ResetLadderValues()
     {
-        _RigidBody.gravityScale = _DefaultGravityScale;
-        _RigidBody.constraints = RigidbodyConstraints2D.None;
-        _RigidBody.freezeRotation = true;
+        if (_wereLadderValuesReset == false)
+        {
+            _wereLadderValuesReset = true;
+            _RigidBody.gravityScale = _DefaultGravityScale;
+            _RigidBody.constraints = RigidbodyConstraints2D.None;
+            _RigidBody.freezeRotation = true;
+        }
     }
 
     private void HoldPositionOnLadder()
     {
         if (!_InputInstance._IsPlayerJumpingOffLadder)
         {
+            _wereLadderValuesReset = false; 
             _RigidBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             _RigidBody.freezeRotation = true;
             _RigidBody.gravityScale = 0f;

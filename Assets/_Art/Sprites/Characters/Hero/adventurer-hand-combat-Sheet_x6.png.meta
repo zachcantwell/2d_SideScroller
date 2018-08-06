@@ -1,7 +1,77 @@
 fileFormatVersion: 2
 guid: 4d7da24903a2ffb438cb2f452e9cfb82
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: adventurer-hand-combat-Sheet_x6_0
+    21300002: adventurer-hand-combat-Sheet_x6_1
+    21300004: adventurer-hand-combat-Sheet_x6_2
+    21300006: adventurer-hand-combat-Sheet_x6_3
+    21300008: adventurer-hand-combat-Sheet_x6_4
+    21300010: adventurer-hand-combat-Sheet_x6_5
+    21300012: adventurer-hand-combat-Sheet_x6_6
+    21300014: adventurer-hand-combat-Sheet_x6_7
+    21300016: adventurer-hand-combat-Sheet_x6_8
+    21300018: adventurer-hand-combat-Sheet_x6_9
+    21300020: adventurer-hand-combat-Sheet_x6_10
+    21300022: adventurer-hand-combat-Sheet_x6_11
+    21300024: adventurer-hand-combat-Sheet_x6_12
+    21300026: adventurer-hand-combat-Sheet_x6_13
+    21300028: adventurer-hand-combat-Sheet_x6_14
+    21300030: adventurer-hand-combat-Sheet_x6_15
+    21300032: adventurer-hand-combat-Sheet_x6_16
+    21300034: adventurer-hand-combat-Sheet_x6_17
+    21300036: adventurer-hand-combat-Sheet_x6_18
+    21300038: adventurer-hand-combat-Sheet_x6_19
+    21300040: adventurer-hand-combat-Sheet_x6_20
+    21300042: adventurer-hand-combat-Sheet_x6_21
+    21300044: adventurer-hand-combat-Sheet_x6_22
+    21300046: adventurer-hand-combat-Sheet_x6_23
+    21300048: adventurer-hand-combat-Sheet_x6_24
+    21300050: adventurer-hand-combat-Sheet_x6_25
+    21300052: adventurer-hand-combat-Sheet_x6_26
+    21300054: adventurer-hand-combat-Sheet_x6_27
+    21300056: adventurer-hand-combat-Sheet_x6_28
+    21300058: adventurer-hand-combat-Sheet_x6_29
+    21300060: adventurer-hand-combat-Sheet_x6_30
+    21300062: adventurer-hand-combat-Sheet_x6_31
+    21300064: adventurer-hand-combat-Sheet_x6_32
+    21300066: adventurer-hand-combat-Sheet_x6_33
+    21300068: adventurer-hand-combat-Sheet_x6_34
+    21300070: adventurer-hand-combat-Sheet_x6_35
+    21300072: adventurer-hand-combat-Sheet_x6_36
+    21300074: adventurer-hand-combat-Sheet_x6_37
+    21300076: adventurer-hand-combat-Sheet_x6_38
+    21300078: adventurer-hand-combat-Sheet_x6_39
+    21300080: adventurer-hand-combat-Sheet_x6_40
+    21300082: adventurer-hand-combat-Sheet_x6_41
+    21300084: adventurer-hand-combat-Sheet_x6_42
+    21300086: adventurer-hand-combat-Sheet_x6_43
+    21300088: adventurer-hand-combat-Sheet_x6_44
+    21300090: adventurer-hand-combat-Sheet_x6_45
+    21300092: adventurer-hand-combat-Sheet_x6_46
+    21300094: adventurer-hand-combat-Sheet_x6_47
+    21300096: adventurer-hand-combat-Sheet_x6_48
+    21300098: adventurer-hand-combat-Sheet_x6_49
+    21300100: adventurer-hand-combat-Sheet_x6_50
+    21300102: adventurer-hand-combat-Sheet_x6_51
+    21300104: adventurer-hand-combat-Sheet_x6_52
+    21300106: adventurer-hand-combat-Sheet_x6_53
+    21300108: adventurer-hand-combat-Sheet_x6_54
+    21300110: adventurer-hand-combat-Sheet_x6_55
+    21300112: adventurer-hand-combat-Sheet_x6_56
+    21300114: adventurer-hand-combat-Sheet_x6_57
+    21300116: adventurer-hand-combat-Sheet_x6_58
+    21300118: adventurer-hand-combat-Sheet_x6_59
+    21300120: adventurer-hand-combat-Sheet_x6_60
+    21300122: adventurer-hand-combat-Sheet_x6_61
+    21300124: adventurer-hand-combat-Sheet_x6_62
+    21300126: adventurer-hand-combat-Sheet_x6_63
+    21300128: adventurer-hand-combat-Sheet_x6_64
+    21300130: adventurer-hand-combat-Sheet_x6_65
+    21300132: adventurer-hand-combat-Sheet_x6_66
+    21300134: adventurer-hand-combat-Sheet_x6_67
+    21300136: adventurer-hand-combat-Sheet_x6_68
+    21300138: adventurer-hand-combat-Sheet_x6_69
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -38,12 +108,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,9 +137,1442 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e1db531164ea840b3609c99028a99b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87153a6467d3bf5478fa323963efac3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856739a155ae59a4da37f59cef5c53f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17c6e355c7bf9f4581f29085dd8b2da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c107682d13eea140b6a2598ce8b66de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0855bb0c5e92b07479675fd82d049c52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1998
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0efbe70ab3012c048bad9a140b16f8d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08858c5c6c3399e4db72225f9dbe30ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7d4eb60b410d14fbdcce5711e0e0d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fc9dac844ca0642a95ccd4dabf4ff1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c59448dca80b64b987be17a2f2163b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b30933f72fcadb4d87507c6e1f372ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_12
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc06b3bf8811df41be5c9eeb9cea021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_13
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1776
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea4aa297d43e9b4d9bf28774e9a635f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb99bea6796a4a4f9235baff881e7a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84bf478f30012c429ff2008d89249c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_16
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed516866dedd6748a12af58ee47b0f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8a7b27a1e4b224ca65124d9fc01f81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_18
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1d75de4e5fb5f4c9113fac64b6a78c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_19
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1554
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3050a79c8ba13c45a68027b365f6601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_20
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1558
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ee348fe95f185479daf5921871c770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7a8d84a487a524ea21872b79ec7601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_22
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1d60b5e96d2254c93a962c4efd0e7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_23
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cb92272f13c874694f698a1bd105d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_24
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e061b784ffea3414bac9c2ad576b6f9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_25
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ba5204f70bdce408a84a1042b0cc7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_26
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6829e401cdefc458539984f000a281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_27
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1332
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ff2b1f9f2dc6749a3779ffdfc64d7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752ad3db7c642fd4ab5f422c9e4af2f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33457e7758cfcb48ae6559d57675ba6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_30
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2a02bd172e45349a4eb5f83d730528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_31
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03588279954c994c9be14d5088e7fa6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_32
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b2b6eb2698c004459b4e41135b31fb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_33
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c74dfe284d9afa4c84e0fde8a871aa6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_34
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1110
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37792215ef41e334694e1487cb79b73b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cd06c95a8818942aeb0fd3fc3757f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_36
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38397560efe7b14897c716793c6e243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_37
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3420be855014e84caf66b900de7b1e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_38
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550522c3c2218ce4b871024b857a9d06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_39
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5c21ff9428cc14e9e8fdba6668373e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_40
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b25ff044d737bb49b7671b1a8972e5b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_41
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 888
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee5ddd6b9334f443bcebc3ee03de9da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7543903c22747478aa393a6923c5f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_43
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ca3e6eb4f14554c96c3f92343804a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_44
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e115032b698c79e4cbd165cfd8233f30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_45
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5f5faa9835a6044b5888174f00b192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_46
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb7977d5c2a0b7428ed0744cffa66c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_47
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e66cd3c50929e43a3484117aae542c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_48
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 666
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3ef742e1ea5364380c5d729ed7e98c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eefd938d696e48e448891534609c2feb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_50
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51803b7c1fa0c754991bd792276eaa38
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_51
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbcfef00dc408994094968d4cb9a6447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_52
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4304575a4549e754aaa75f2c1b939919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_53
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243c2201bee2d304b8cb831b4b5c7222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_54
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8878f414389d9844492acd8f21a60a09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_55
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 444
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496be3597675e6743948da56fc71ec36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d424a1910debb047b373e1a9f4f547a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_57
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c10a6077bc2af344998169bc678b17b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_58
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201f7e1b86b459148b7eee9ec78dc843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_59
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30cb223b39601f546bd347d62d0cc20b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_60
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5ec50b7d6be1747bbb313400c74e07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_61
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09588d074ae22b46af04354c921617c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_62
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 222
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971adf64813965544a67b00564217769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e024a2adfd8084c91046377073e959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_64
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0056bd2c9d75a44a374dd4d8f22fc1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_65
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea066916b6d0ad4b98f434c63de825b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_66
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b780905b4e5dd254195e696714ab267e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_67
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a375aeb6c7cc1a342884a950ad518b61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_68
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017d8302d244f0240b3377c5f9bed67b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: adventurer-hand-combat-Sheet_x6_69
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974db9aaa7544ad43b7bf9c30084972a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

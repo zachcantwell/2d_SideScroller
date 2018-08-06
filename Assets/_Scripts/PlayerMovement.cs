@@ -8,19 +8,21 @@ public class PlayerMovement : PlayerInput
     [SerializeField]
     private float _runMultiplier = 10f;
     [SerializeField]
-    private float _groundSlideMultiplier = 15f;
+    private float _crouchMultiplier = 5f;
     [SerializeField]
-    private float _fallMultiplier = 10f;
+    private float _groundSlideMultiplier = 15f;
     [SerializeField]
     private float _defaultJumpSpeed = 10f;
     [SerializeField]
     private float _doubleJumpStrength = 8f;
     [SerializeField]
-    private float _waterJumpStrength = 9f;
-    [SerializeField]
-    private float _distanceToWallLengthCheck = 0.16f;
+    private float _pushSpeed = 1.5f;
     [SerializeField]
     private Vector2 _wallJumpSpd = new Vector2(15f, 10f);
+    [SerializeField]
+    private float _wallJumpSpeedOffset = 7.5f;
+    [SerializeField]
+    private float _dodgeSpeed = 100f;
 
     public int _doubleJumpCounter
     {
@@ -35,16 +37,26 @@ public class PlayerMovement : PlayerInput
         get; private set;
     }
 
+    private BackCollider[] _backCollider;
+    private RaycastHit2D _hit;
+    private Vector2 _desiredDodgePos;
+    private bool _WasFlipped = false; 
     private bool _WereJumpConditionsMet = false;
     private bool _WereRunConditionsMet = false;
     private bool _WereGroundSlideConditionsMet = false;
     private bool _WereAirControlConditionsMet = false;
     private bool _wasWallSlidingDirectionChanged = false;
+    private bool _isWallJumping = false;
     private float _doubleJumpTimer = 0f;
     private float _ignoreHorizontalInputTimer = 0f;
-    private const float _ignoreHorizontalInputOffset = 0.45f;
+    private float _maxXVelocity = 0f;
+    private float _ignoreHorizontalInputOffsetOffsetter = 0f;
+    private float _initialDodgeDistance = 0f;
+    private float _ignoreDodgeTimer = 0f;
+    private float _ignoreDodgeTimerOffset = 0.3f;
+    private const float _ignoreHorizontalInputOffset = 0.5f;
     private const float _doubleJumpTimerOffset = 0.15f;
-    private const float _airXOffset = 0.85f;
+    private const float _airXOffset = 0.83f;
 
     // Use this for initialization
     void Awake()
@@ -57,7 +69,11 @@ public class PlayerMovement : PlayerInput
         _WereJumpConditionsMet = false;
         _WereRunConditionsMet = false;
         _WereGroundSlideConditionsMet = false;
-        _WereAirControlConditionsMet = false; 
+        _WereAirControlConditionsMet = false;
+        _isWallJumping = false;
+        _desiredDodgePos = Vector2.zero;
+        _ignoreHorizontalInputOffsetOffsetter = _ignoreHorizontalInputOffset / 2.5f;
+        _backCollider = FindObjectsOfType<BackCollider>();
         _doubleJumpCounter = 0;
     }
 
@@ -99,9 +115,13 @@ public class PlayerMovement : PlayerInput
         {
             _WereJumpConditionsMet = CheckJumpConditions();
         }
-        if(!_DataInstance._IsAboveSomething)
+        if (!_DataInstance._IsAboveSomething)
         {
             _WereAirControlConditionsMet = CheckAirControlConditions();
+        }
+        else
+        {
+            _WereAirControlConditionsMet = false;
         }
         if (_InputInstance._WasDirectionChanged)
         {
@@ -117,9 +137,18 @@ public class PlayerMovement : PlayerInput
 
     private void BasicPlayerMovement()
     {
-        if (_WereRunConditionsMet && _InputInstance._IsPlayerRunning)
+        if (_InputInstance._IsPlayerCrouching)
+        {
+            Crouch();
+        }
+        else if (_WereRunConditionsMet && _InputInstance._IsPlayerRunning)
         {
             Run();
+        }
+
+        if (_InputInstance._IsPlayerDodging)
+        {
+            Dodge();
         }
         if (_WereGroundSlideConditionsMet && _InputInstance._IsPlayerGroundSliding)
         {
@@ -132,7 +161,7 @@ public class PlayerMovement : PlayerInput
 
         // AirControl has to happen after Jump() b/c of a timer.
         // It also depends on _IsPlayerRunning b/c it gets horizontal input of player.
-        if(_WereAirControlConditionsMet)
+        if (_WereAirControlConditionsMet)
         {
             AirControl();
         }
@@ -160,30 +189,115 @@ public class PlayerMovement : PlayerInput
     private void Run()
     {
         // This code only runs if the player is above something / isgrounded
+        _isWallJumping = false;
         float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
         float playerX = xPos * _runMultiplier * Time.fixedDeltaTime;
 
+        if (_DataInstance._IsHorizontalToGrabableObject)
+        {
+            playerX /= _pushSpeed;
+        }
+
         Vector2 playerVelocity = new Vector2(playerX, _DataInstance._RigidBody.velocity.y);
         _DataInstance._RigidBody.velocity = playerVelocity;
+    }
+
+    private void Crouch()
+    {
+        _isWallJumping = false;
+        float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
+        float playerX = xPos * _crouchMultiplier * Time.fixedDeltaTime;
+
+        if (_DataInstance._IsHorizontalToGrabableObject)
+        {
+            playerX /= _pushSpeed;
+        }
+
+        Vector2 playerVelocity = new Vector2(playerX, _DataInstance._RigidBody.velocity.y);
+        _DataInstance._RigidBody.velocity = playerVelocity;
+    }
+
+    private void Dodge()
+    {
+        bool wasHit = false;
+        bool flipx = _SpriteRenderer.flipX;
+
+        if (Time.timeSinceLevelLoad < _ignoreDodgeTimer)
+        {
+            return;
+        }
+
+        float direction = flipx ? 1 : -1;
+        float dodgeLength = 1.65f;
+        float lerpSpd = 9.25f;
+
+        if (!_InputInstance._IgnorePlayerInput)
+        {
+            _InputInstance._IgnorePlayerInput = true;
+            _DataInstance._RigidBody.isKinematic = true;
+            _desiredDodgePos = new Vector2(transform.localPosition.x + (direction * dodgeLength), transform.localPosition.y);
+            _initialDodgeDistance = Vector2.Distance(transform.localPosition, _desiredDodgePos);
+        }
+
+        foreach (BackCollider bc in _backCollider)
+        {
+           if (bc._wasLevelColliderHit)
+            {
+                wasHit = true;
+                break;
+            }
+        }
+
+        float currentDistance = Vector2.Distance(transform.localPosition, _desiredDodgePos);
+
+        if (currentDistance / _initialDodgeDistance < 0.05f || wasHit)
+        {
+            Debug.LogWarning(currentDistance / _initialDodgeDistance + " = currDist/initDist");
+            _DataInstance._RigidBody.isKinematic = false;
+            _InputInstance._IgnorePlayerInput = false;
+            _InputInstance._IsPlayerDodging = false; 
+            _ignoreDodgeTimer = Time.timeSinceLevelLoad + _ignoreDodgeTimerOffset;
+        }
+        else
+        {
+            Vector2 newPos = Vector2.Lerp(transform.localPosition, _desiredDodgePos, Time.fixedDeltaTime * lerpSpd);
+            _DataInstance._RigidBody.MovePosition(newPos);
+        }
     }
 
     private bool CheckAirControlConditions()
     {
         if (_InputInstance._IsPlayerRunning && !_InputInstance._IsPlayerSwinging && !_DataInstance._IsTouchingWater)
         {
-            return true; 
+            return true;
         }
-        return false; 
+        return false;
     }
 
     private void AirControl()
     {
         // the If is for directly after a wall jump
-        if (Time.timeSinceLevelLoad < _ignoreHorizontalInputTimer)
+        if (Time.timeSinceLevelLoad < (_ignoreHorizontalInputTimer - _ignoreHorizontalInputOffsetOffsetter) && _isWallJumping)
         {
+            //Dont want the player to do anything here
+            _maxXVelocity = _RigidBody.velocity.x;
+            return;
+        }
+        if (Time.timeSinceLevelLoad < _ignoreHorizontalInputTimer && _isWallJumping)
+        {
+            //WAnt the player to have reduced control over their jump here
             float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
-            float playerX = xPos * _fallMultiplier;
-            _DataInstance._RigidBody.AddForce(new Vector2(playerX, 0f), ForceMode2D.Force);
+            float xVelocity = _RigidBody.velocity.x;
+            float xSpd = Mathf.Lerp(xVelocity, Mathf.Sign(xPos) * _maxXVelocity, Time.fixedDeltaTime * _wallJumpSpeedOffset / 2f);
+            _RigidBody.velocity = new Vector2(xSpd, _RigidBody.velocity.y);
+        }
+        else if (Time.timeSinceLevelLoad >= _ignoreHorizontalInputTimer && _isWallJumping)
+        {
+            //WAnt the player to have more control over their jump here
+            float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
+            float xVelocity = _RigidBody.velocity.x;
+            float xSpd = Mathf.Lerp(xVelocity, Mathf.Sign(xPos) * _maxXVelocity, Time.fixedDeltaTime * _wallJumpSpeedOffset);
+            _RigidBody.velocity = new Vector2(xSpd, _RigidBody.velocity.y);
         }
         else
         {
@@ -210,10 +324,27 @@ public class PlayerMovement : PlayerInput
             }
             else if (Time.timeSinceLevelLoad > _doubleJumpTimer)
             {
-                if (_DataInstance._IsHorizontalToWall)
+                float x = 0f;
+                float inputX = 0f;
+
+                if (_DataInstance._IsHorizontalToWall || _DataInstance._IsTouchingCorner)
                 {
-                    WallJump();
-                    return true;
+                    _hit = _DataInstance._HorizontalWallRaycast;
+                    x = _hit.normal.x;
+                    inputX = _InputInstance._GetHorizontalAxisValue;
+
+                    // TODO: Making it != will reverse the direction required to initiate the jump
+                    if ((Mathf.Sign(x) != Mathf.Sign(inputX)) && inputX != 0)
+                    {
+                        WallJump();
+                        return true;
+                    }
+                    else
+                    {
+                        //this is for a screwed up wall jump
+                        _doubleJumpCounter++;
+                        return false;
+                    }
                 }
                 else if (_doubleJumpCounter == 1)
                 {
@@ -229,15 +360,10 @@ public class PlayerMovement : PlayerInput
                 LadderJump();
                 return true;
             }
-            else if (Time.timeSinceLevelLoad > _doubleJumpTimer && _DataInstance._IsTouchingWater)
-            {
-                WaterJump();
-                return true;
-            }
         }
         return false;
     }
-    
+
     private void Jump()
     {
         switch (_DataInstance._JumpState)
@@ -258,6 +384,7 @@ public class PlayerMovement : PlayerInput
                     _DataInstance._SpriteRenderer.flipX = !_DataInstance._SpriteRenderer.flipX;
                     Vector2 veloc = new Vector2(_wallJumpSpd.x * hit.normal.x, _wallJumpSpd.y);
                     _DataInstance._RigidBody.velocity = veloc;
+                    _maxXVelocity = _DataInstance._RigidBody.velocity.x;
                 }
                 break;
 
@@ -265,31 +392,21 @@ public class PlayerMovement : PlayerInput
                 _DataInstance._RigidBody.AddForce(new Vector2(0f, _defaultJumpSpeed), ForceMode2D.Impulse);
                 break;
 
-            case JUMPSTATUS.WaterJump:
-                float yStr = _waterJumpStrength * Time.fixedDeltaTime;
-                _DataInstance._RigidBody.velocity = new Vector2(_DataInstance._RigidBody.velocity.x, yStr);
-                break;
-
             default:
-                Debug.LogWarning("JumpState = " + _DataInstance._JumpState);
                 break;
         }
     }
 
     private void LadderJump()
     {
+        _isWallJumping = false;
         _DataInstance._JumpState = JUMPSTATUS.LadderJump;
-        _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
-    }
-
-    private void WaterJump()
-    {
-        _DataInstance._JumpState = JUMPSTATUS.WaterJump;
         _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
     }
 
     private void NormalJump()
     {
+        _isWallJumping = false;
         _doubleJumpCounter++;
         _DataInstance._JumpState = JUMPSTATUS.NormalJump;
         _doubleJumpTimer = Time.timeSinceLevelLoad + _doubleJumpTimerOffset;
@@ -297,6 +414,7 @@ public class PlayerMovement : PlayerInput
 
     private void WallJump()
     {
+        _isWallJumping = true;
         _doubleJumpCounter++;
         _DataInstance._JumpState = JUMPSTATUS.WallJump;
         _ignoreHorizontalInputTimer = Time.timeSinceLevelLoad + _ignoreHorizontalInputOffset;
@@ -305,14 +423,15 @@ public class PlayerMovement : PlayerInput
 
     private void DoubleJump()
     {
+        _isWallJumping = false;
         _doubleJumpCounter++;
         _DataInstance._JumpState = JUMPSTATUS.DoubleJump;
     }
 
     private bool CheckGroundSlideConditions()
     {
-        if (!_DataInstance._IsTouchingWater &&  Mathf.Abs(_RigidBody.velocity.x) > 0 &&
-        (_DataInstance._IsAboveGround || _DataInstance._IsAboveCorner || _DataInstance._IsAboveWall))
+        if (!_DataInstance._IsTouchingWater && Mathf.Abs(_RigidBody.velocity.x) > 0 && !_InputInstance._IsPlayerCrouching
+        && (_DataInstance._IsAboveGround || _DataInstance._IsAboveCorner || _DataInstance._IsAboveWall))
         {
             return true;
         }
@@ -321,6 +440,7 @@ public class PlayerMovement : PlayerInput
 
     private void GroundSlide()
     {
+        Debug.LogWarning("Inside GroundSlide()");
         float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
         if (!AnimationEventReciever._isItTheLastFrameOfGroundSliding)
         {
@@ -346,10 +466,12 @@ public class PlayerMovement : PlayerInput
             if (CrossPlatformInputManager.GetAxis("Horizontal") > 0 && _DataInstance._SpriteRenderer.flipX)
             {
                 _DataInstance._SpriteRenderer.flipX = !_DataInstance._SpriteRenderer.flipX;
+                _WasFlipped = true;
             }
             else if (CrossPlatformInputManager.GetAxis("Horizontal") < 0 && !_DataInstance._SpriteRenderer.flipX)
             {
                 _DataInstance._SpriteRenderer.flipX = !_DataInstance._SpriteRenderer.flipX;
+                _WasFlipped = true;
             }
         }
         else
