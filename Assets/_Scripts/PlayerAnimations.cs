@@ -52,6 +52,7 @@ public class PlayerAnimations : PlayerInput
         CheckForSwimmingAnimations();
         CheckForSwordGroundAttackAnimation();
         CheckForSwordAirAttackAnimation();
+        CheckForPlayerDamagedAnimations();
     }
 
     public void InitializePlayerAnimations()
@@ -112,29 +113,35 @@ public class PlayerAnimations : PlayerInput
 
     private void CheckForIdleAnimation()
     {
-        if (_RigidBody.velocity.x == 0 || Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) < 0.05f)
+        if (_RigidBody.velocity.x == 0 )
         {
             //Idle
             _Animator.SetBool("isWalkingRunningSprinting", false);
+            _Animator.SetBool("isWalking", false);
+            _Animator.SetBool("isRunning", false);
+            _Animator.SetBool("isSprinting", false);
         }
         if (_RigidBody.velocity.y == 0)
         {
             //idle part two
             _Animator.SetBool("isJumping", false);
             _Animator.SetBool("isDoubleJumping", false);
+            _Animator.SetBool("isGrounded", true);
             _Animator.SetBool("isFalling", false);
         }
     }
 
     private void CheckForFallingAnimation()
     {
-        if (_DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject || _DataInstance._IsAboveCorner)
+        if (_DataInstance._IsAboveGround || _DataInstance._IsAboveGrabbableObject || _DataInstance._IsAboveCorner
+            || _DataInstance._IsAboveWall || _DataInstance._IsAboveLadder) 
         {
             _hasControlAlreadyBeenPressed = false;
             _Animator.SetBool("isSwinging", false);
             _Animator.SetBool("isJumping", false);
             _Animator.SetBool("isDoubleJumping", false);
             _Animator.SetBool("isFalling", false);
+            _Animator.SetBool("isGrounded", true);
         }
         else if (_DataInstance._IsTouchingWater)
         {
@@ -175,14 +182,14 @@ public class PlayerAnimations : PlayerInput
         if (xAxis > 0.05f)
         {
             _Animator.SetBool("isWalkingRunningSprinting", true);
-            if (xAxis > 0.05f && xAxis < 0.25f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+            if (xAxis > 0.05f && xAxis < 0.40f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
             {
                 _Animator.SetBool("isWalking", true);
                 _Animator.SetBool("isRunning", false);
                 _Animator.SetBool("isSprinting", false);
                 _Animator.SetBool("isGrounded", true);
             }
-            else if(xAxis > 0.25f && xAxis < 0.80f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
+            else if(xAxis > 0.40f && xAxis < 0.95f && _DataInstance._IsAboveSomething && !_DataInstance._IsTouchingWater)
             {
                 _Animator.SetBool("isWalking", false);
                 _Animator.SetBool("isRunning", true);
@@ -297,6 +304,7 @@ public class PlayerAnimations : PlayerInput
             else if (PlayerData._DataInstance._JumpState == JUMPSTATUS.DoubleJump)
             {
                 _Animator.SetBool("isDoubleJumping", true);
+                _Animator.SetBool("isGrounded", false);
             }
         }
     }
@@ -428,6 +436,7 @@ public class PlayerAnimations : PlayerInput
             _Animator.SetBool("isGrounded", false);
             _Animator.SetBool("isCrouchingMove", false);
             _Animator.SetBool("isCrouchingIdle", false);
+            _Animator.SetBool("isSwordDrawn", false);
 
             if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f)
             {
@@ -539,5 +548,17 @@ public class PlayerAnimations : PlayerInput
         }
     }
 
-
+    private void CheckForPlayerDamagedAnimations()
+    {
+        if(PlayerHealth._WasPlayerHurt)
+        {
+            _Animator.SetTrigger("isHurting");
+            PlayerHealth._WasPlayerHurt = false;
+        }
+        else if(PlayerHealth._WasPlayerKilled)
+        {
+            _Animator.SetTrigger("isDying");
+            PlayerHealth._WasPlayerKilled = false; 
+        }
+    }
 }

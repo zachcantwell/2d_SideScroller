@@ -21,8 +21,6 @@ public class PlayerMovement : PlayerInput
     private Vector2 _wallJumpSpd = new Vector2(15f, 10f);
     [SerializeField]
     private float _wallJumpSpeedOffset = 7.5f;
-    [SerializeField]
-    private float _dodgeSpeed = 100f;
 
     public int _doubleJumpCounter
     {
@@ -37,9 +35,7 @@ public class PlayerMovement : PlayerInput
         get; private set;
     }
 
-    private BackCollider[] _backCollider;
     private RaycastHit2D _hit;
-    private Vector2 _desiredDodgePos;
     private bool _WasFlipped = false; 
     private bool _WereJumpConditionsMet = false;
     private bool _WereRunConditionsMet = false;
@@ -51,9 +47,7 @@ public class PlayerMovement : PlayerInput
     private float _ignoreHorizontalInputTimer = 0f;
     private float _maxXVelocity = 0f;
     private float _ignoreHorizontalInputOffsetOffsetter = 0f;
-    private float _initialDodgeDistance = 0f;
-    private float _ignoreDodgeTimer = 0f;
-    private float _ignoreDodgeTimerOffset = 0.3f;
+
     private const float _ignoreHorizontalInputOffset = 0.5f;
     private const float _doubleJumpTimerOffset = 0.15f;
     private const float _airXOffset = 0.83f;
@@ -71,9 +65,7 @@ public class PlayerMovement : PlayerInput
         _WereGroundSlideConditionsMet = false;
         _WereAirControlConditionsMet = false;
         _isWallJumping = false;
-        _desiredDodgePos = Vector2.zero;
         _ignoreHorizontalInputOffsetOffsetter = _ignoreHorizontalInputOffset / 2.5f;
-        _backCollider = FindObjectsOfType<BackCollider>();
         _doubleJumpCounter = 0;
     }
 
@@ -103,19 +95,19 @@ public class PlayerMovement : PlayerInput
 
     void Update()
     {
-        if (_InputInstance._IsPlayerRunning)
+        if (_InputInstance._IsPlayerRunning && !_InputInstance._IgnorePlayerInput)
         {
             _WereRunConditionsMet = CheckRunConditions();
         }
-        if (_InputInstance._IsPlayerGroundSliding)
+        if (_InputInstance._IsPlayerGroundSliding && !_InputInstance._IgnorePlayerInput)
         {
             _WereGroundSlideConditionsMet = CheckGroundSlideConditions();
         }
-        if (_InputInstance._IsPlayerJumping)
+        if (_InputInstance._IsPlayerJumping && !_InputInstance._IgnorePlayerInput)
         {
             _WereJumpConditionsMet = CheckJumpConditions();
         }
-        if (!_DataInstance._IsAboveSomething)
+        if (!_DataInstance._IsAboveSomething && !_InputInstance._IgnorePlayerInput)
         {
             _WereAirControlConditionsMet = CheckAirControlConditions();
         }
@@ -123,7 +115,7 @@ public class PlayerMovement : PlayerInput
         {
             _WereAirControlConditionsMet = false;
         }
-        if (_InputInstance._WasDirectionChanged)
+        if (_InputInstance._WasDirectionChanged && !_InputInstance._IgnorePlayerInput)
         {
             ChangeDirection();
             _InputInstance._WasDirectionChanged = !_InputInstance._WasDirectionChanged;
@@ -137,7 +129,7 @@ public class PlayerMovement : PlayerInput
 
     private void BasicPlayerMovement()
     {
-        if (_InputInstance._IsPlayerCrouching)
+        if (_InputInstance._IsPlayerCrouching && !_InputInstance._IgnorePlayerInput)
         {
             Crouch();
         }
@@ -146,10 +138,6 @@ public class PlayerMovement : PlayerInput
             Run();
         }
 
-        if (_InputInstance._IsPlayerDodging)
-        {
-            Dodge();
-        }
         if (_WereGroundSlideConditionsMet && _InputInstance._IsPlayerGroundSliding)
         {
             GroundSlide();
@@ -217,53 +205,6 @@ public class PlayerMovement : PlayerInput
         _DataInstance._RigidBody.velocity = playerVelocity;
     }
 
-    private void Dodge()
-    {
-        bool wasHit = false;
-        bool flipx = _SpriteRenderer.flipX;
-
-        if (Time.timeSinceLevelLoad < _ignoreDodgeTimer)
-        {
-            return;
-        }
-
-        float direction = flipx ? 1 : -1;
-        float dodgeLength = 1.65f;
-        float lerpSpd = 9.25f;
-
-        if (!_InputInstance._IgnorePlayerInput)
-        {
-            _InputInstance._IgnorePlayerInput = true;
-            _DataInstance._RigidBody.isKinematic = true;
-            _desiredDodgePos = new Vector2(transform.localPosition.x + (direction * dodgeLength), transform.localPosition.y);
-            _initialDodgeDistance = Vector2.Distance(transform.localPosition, _desiredDodgePos);
-        }
-
-        foreach (BackCollider bc in _backCollider)
-        {
-           if (bc._wasLevelColliderHit)
-            {
-                wasHit = true;
-                break;
-            }
-        }
-
-        float currentDistance = Vector2.Distance(transform.localPosition, _desiredDodgePos);
-
-        if (currentDistance / _initialDodgeDistance < 0.05f || wasHit)
-        {
-            Debug.LogWarning(currentDistance / _initialDodgeDistance + " = currDist/initDist");
-            _DataInstance._RigidBody.isKinematic = false;
-            _InputInstance._IgnorePlayerInput = false;
-            _InputInstance._IsPlayerDodging = false; 
-            _ignoreDodgeTimer = Time.timeSinceLevelLoad + _ignoreDodgeTimerOffset;
-        }
-        else
-        {
-            Vector2 newPos = Vector2.Lerp(transform.localPosition, _desiredDodgePos, Time.fixedDeltaTime * lerpSpd);
-            _DataInstance._RigidBody.MovePosition(newPos);
-        }
-    }
 
     private bool CheckAirControlConditions()
     {
@@ -285,19 +226,14 @@ public class PlayerMovement : PlayerInput
         }
         if (Time.timeSinceLevelLoad < _ignoreHorizontalInputTimer && _isWallJumping)
         {
+            //TODO
             //WAnt the player to have reduced control over their jump here
-            float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
-            float xVelocity = _RigidBody.velocity.x;
-            float xSpd = Mathf.Lerp(xVelocity, Mathf.Sign(xPos) * _maxXVelocity, Time.fixedDeltaTime * _wallJumpSpeedOffset / 2f);
-            _RigidBody.velocity = new Vector2(xSpd, _RigidBody.velocity.y);
+    
         }
         else if (Time.timeSinceLevelLoad >= _ignoreHorizontalInputTimer && _isWallJumping)
         {
+            //TODO
             //WAnt the player to have more control over their jump here
-            float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
-            float xVelocity = _RigidBody.velocity.x;
-            float xSpd = Mathf.Lerp(xVelocity, Mathf.Sign(xPos) * _maxXVelocity, Time.fixedDeltaTime * _wallJumpSpeedOffset);
-            _RigidBody.velocity = new Vector2(xSpd, _RigidBody.velocity.y);
         }
         else
         {

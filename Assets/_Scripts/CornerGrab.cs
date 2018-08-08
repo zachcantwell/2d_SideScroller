@@ -99,6 +99,7 @@ public class CornerGrab : PlayerInput
         float normal = _DataInstance._HorizontalCornerRaycast.normal.x;
         Vector2 point = _DataInstance._HorizontalCornerRaycast.point;
         Vector3 scale = _DataInstance._HorizontalCornerRaycast.transform.localScale;
+        Vector3 pos = _DataInstance._HorizontalCornerRaycast.transform.localPosition;
 
         //TODO: May want to use this to round to 0.5f!!!!
         //float xRounded = Mathf.Sign(point.x) * (Mathf.Abs((int)point.x) + 0.5f);
@@ -107,16 +108,18 @@ public class CornerGrab : PlayerInput
         float xRounded = Mathf.Round(point.x);
         float yRounded = Mathf.Round(point.y);
 
+        // normal < 0 means you hit a negative normal. So, it would be a corner on the 
+        // righthand side of the player 
         if (normal < 0)
         {
             Debug.LogWarning(_cornerPosition + " = IF cornerPosition");
-            _cornerPosition = new Vector2(xRounded - (scale.x / 3.5f), yRounded + (scale.y / 4));
+            _cornerPosition = new Vector2(pos.x - scale.x/2, pos.y + scale.y/2);
             _desiredPos = new Vector2(point.x + Mathf.Abs(normal / 8), point.y + (scale.y * 2.15f));
         }
         else
         {
             Debug.LogWarning(_cornerPosition + " = ELSE cornerPosition");
-            _cornerPosition = new Vector2(xRounded + (scale.x / 2.2f), yRounded + (scale.y / 4));
+            _cornerPosition = new Vector2(pos.x + scale.x/2, pos.y + scale.y/2);
             _desiredPos = new Vector2(point.x - (normal / 8), point.y + (scale.y * 2.15f));
         }
         _initialDistance = Vector2.Distance(transform.localPosition, _desiredPos);
@@ -127,25 +130,20 @@ public class CornerGrab : PlayerInput
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _CORNERSTATUS = CornerGrabStatus.HangFromCorner;
-         //   _Animator.SetBool("isHanging", true);
             Physics2D.IgnoreLayerCollision(10, 14, true);
+            _CORNERSTATUS = CornerGrabStatus.HangFromCorner;
             _RigidBody.isKinematic = true;
             _DataInstance._RigidBody.MovePosition(_cornerPosition);
         }
         else if (Input.GetKey(KeyCode.E) && CrossPlatformInputManager.GetAxisRaw("Vertical") > 0.75f)
         {
             _CORNERSTATUS = CornerGrabStatus.ClimbUpOnCorner;
-          //  _Animator.SetBool("isHanging", false);
-          //  _Animator.SetBool("isClimbingOntopOfCorner", true);
         }
         else if (Input.GetKeyUp(KeyCode.E))
         {
-            _CORNERSTATUS = CornerGrabStatus.None;
-           // _Animator.SetBool("isHanging", false);
-          //  _Animator.SetBool("isClimbingOntopOfCorner", false);
-            _RigidBody.isKinematic = false;
             Physics2D.IgnoreLayerCollision(10, 14, false);
+            _CORNERSTATUS = CornerGrabStatus.None;
+            _RigidBody.isKinematic = false;
 
             _RigidBody.constraints = RigidbodyConstraints2D.None;
             _RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -154,16 +152,15 @@ public class CornerGrab : PlayerInput
         else if (Input.GetKey(KeyCode.E))
         {
             _CORNERSTATUS = CornerGrabStatus.HangFromCorner;
-           // _Animator.SetBool("isHanging", true);
             _RigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
     private void MovePlayerAboveCornerPosition()
     {
+        Physics2D.IgnoreLayerCollision(10, 14, true);
         _RigidBody.isKinematic = true;
         _InputInstance._IgnorePlayerInput = true;
-        Physics2D.IgnoreLayerCollision(10, 14, true);
 
         _moveToCornerSpeed = Mathf.Lerp(_moveToCornerSpeed, 14f, Time.deltaTime);
         Vector2 newPos = Vector2.MoveTowards(transform.localPosition, _desiredPos, Time.deltaTime * _moveToCornerSpeed);
@@ -177,7 +174,6 @@ public class CornerGrab : PlayerInput
             _RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             Physics2D.IgnoreLayerCollision(10, 14, false);
 
-        //    _Animator.SetBool("isClimbingOntopOfCorner", false);
             _moveToCornerSpeed = 1.65f;
             _RigidBody.isKinematic = false;
             _InputInstance._IgnorePlayerInput = false;

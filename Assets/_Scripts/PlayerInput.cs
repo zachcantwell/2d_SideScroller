@@ -204,6 +204,7 @@ public class PlayerInput : PlayerData
                 }
             }
         }
+       
     }
 
     private bool IsPlayerDodging()
@@ -373,7 +374,7 @@ public class PlayerInput : PlayerData
     {
         if (CrossPlatformInputManager.GetButtonDown("DrawSword"))
         {
-            if (_DataInstance._IsTouchingWater)
+            if (_DataInstance._IsTouchingWater || !_DataInstance._IsAboveSomething)
             {
                 return;
             }

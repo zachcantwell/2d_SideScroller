@@ -7,6 +7,11 @@ public class Swim : PlayerInput
 {
     [SerializeField]
     private float _swimMultiplier = 200f;
+    private BuoyancyEffector2D _waterEffector;
+    private GameObject _waterSurface;
+    private EdgeCollider2D _waterSurfaceEdgeCollider;
+    private BoxCollider2D _waterSurfaceBoxCollider;
+    private float _waterDensity;
 
     public bool? _WasSwimInitialized
     {
@@ -35,10 +40,6 @@ public class Swim : PlayerInput
             if (_InputInstance._IsPlayerSwimming)
             {
                 StartSwimming();
-            }
-            else
-            {
-                IdleInWater();
             }
         }
         _InputInstance._IsPlayerSwimming = false;
@@ -80,11 +81,62 @@ public class Swim : PlayerInput
         float xPos = CrossPlatformInputManager.GetAxis("Horizontal");
         float playerX = xPos * _swimMultiplier * Time.fixedDeltaTime;
 
-        Vector2 playerVelocity = new Vector2(playerX, _RigidBody.velocity.y);
+        float yPos = CrossPlatformInputManager.GetAxis("Vertical");
+        float playerY = yPos * _swimMultiplier * Time.fixedDeltaTime;
+
+        Vector2 playerVelocity = new Vector2(playerX, playerY);
         _RigidBody.velocity = playerVelocity;
+
+        if (Mathf.Sign(yPos) < 0)
+        {
+            if(_waterEffector)
+            {
+                _waterEffector.density = 9f;
+            }
+        }
+        else if(Mathf.Sign(yPos) > 0)
+        {
+            if(_waterEffector)
+            {
+               _waterEffector.density = _waterDensity;
+            }
+            if(_waterSurface)
+            {
+                if(transform.position.y >= _waterSurface.transform.position.y - 0.35f)
+                {
+                    _RigidBody.velocity = new Vector2(_RigidBody.velocity.x, 0f); 
+                }
+            }
+        }
     }
 
-    private void IdleInWater()
+
+    void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.GetComponent<BuoyancyEffector2D>())
+        {
+            _waterEffector = other.GetComponent<BuoyancyEffector2D>();
+            _waterDensity = _waterEffector.density;
+        }
+        if (other.GetComponent<Collider2D>().gameObject.tag == "WaterSurface")
+        {
+            _waterSurface = other.gameObject;
+            _waterSurfaceBoxCollider = _waterSurface.GetComponent<BoxCollider2D>();
+            _waterSurfaceEdgeCollider = _waterSurface.GetComponent<EdgeCollider2D>();
+        }
+    }
+
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other == _waterEffector)
+        {
+            _waterEffector.density = _waterDensity;
+            _waterEffector = null;
+        }
+        if (other == _waterSurface)
+        {
+            _waterSurface = null;
+        }
     }
 }
