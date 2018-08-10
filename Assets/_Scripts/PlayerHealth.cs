@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour {
 		{
 			_playerHealth--;
 			Debug.LogWarning("Player hurt. Health = " + _playerHealth);
-			if(_playerHealth != 0)
+			if(_playerHealth > 0)
 			{
 				ApplyDamageForce(other);
 				_ignoreDamageTimer = Time.timeSinceLevelLoad + _ignoreDamageTimerOffset; 

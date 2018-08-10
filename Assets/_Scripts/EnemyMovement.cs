@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    private enum EnemyMovementStatus
+    {
+        None,
+        IsMoving,
+        IsTakingDamage
+    }
     [SerializeField]
     private float _moveSpeed = 10f;
+    [SerializeField]
+    private Vector2 _damageForce = new Vector2(8f, 12f); 
     private Rigidbody2D _enemyRigidbody;
     private SpriteRenderer _enemySpriteRenderer;
+    private int _playerSwordLayer; 
+    private EnemyMovementStatus _ENEMYMOVEMENTSTATUS = EnemyMovementStatus.IsMoving; 
 
     // Use this for initialization
     void Start()
     {
         _enemyRigidbody = GetComponent<Rigidbody2D>();
         _enemySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _playerSwordLayer = LayerMask.NameToLayer("PlayerSword");
+        EnemyMovementStatus _ENEMYMOVEMENTSTATUS = EnemyMovementStatus.IsMoving; 
     }
 
     void Update()
     {
-        if (!IsEnemyGrounded())
+        if (!IsEnemyGrounded() && _ENEMYMOVEMENTSTATUS == EnemyMovementStatus.IsMoving)
         {
             _enemySpriteRenderer.flipX = !_enemySpriteRenderer.flipX;
             _moveSpeed *= -1f;
@@ -28,17 +39,44 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        _enemyRigidbody.velocity = Vector2.right * _moveSpeed * Time.fixedDeltaTime;
+        if(_ENEMYMOVEMENTSTATUS == EnemyMovementStatus.IsMoving)
+        {
+            _enemyRigidbody.velocity = Vector2.right * _moveSpeed * Time.fixedDeltaTime;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        string otherTag = other.GetComponent<Collider2D>().gameObject.tag;
-        if (otherTag == "Wall" || otherTag == "Corner")
+        GameObject otherObj = other.GetComponent<Collider2D>().gameObject;
+        if (otherObj.tag == "Wall" || otherObj.tag == "Corner")
         {
             _enemySpriteRenderer.flipX = !_enemySpriteRenderer.flipX;
             _moveSpeed *= -1f;
         }
+        if(otherObj.layer == _playerSwordLayer)
+        {
+            _ENEMYMOVEMENTSTATUS = EnemyMovementStatus.IsTakingDamage; 
+            ApplyDamageForces(otherObj); 
+        }
+    }
+    
+    private void ApplyDamageForces(GameObject sword)
+    {
+        if(sword.transform.position.x < transform.position.x)
+        {
+            _enemyRigidbody.AddForce(_damageForce, ForceMode2D.Impulse);
+        }
+        else if(sword.transform.position.x > transform.position.x)
+        {
+            Vector2 dmg = new Vector2(-_damageForce.x, _damageForce.y); 
+            _enemyRigidbody.AddForce(dmg, ForceMode2D.Impulse);
+        }
+        Invoke("StartMovingEnemyAgain", 0.5f);
+    }
+
+    private void StartMovingEnemyAgain()
+    {
+        _ENEMYMOVEMENTSTATUS = EnemyMovementStatus.IsMoving;
     }
 
     private bool IsEnemyGrounded()
