@@ -209,12 +209,21 @@ public class GhostSprites : MonoBehaviour
 			color.a = temp;
 			SpriteRenderer sprite = ghostList[i].GetComponent<SpriteRenderer>();
 			sprite.color = color;
+
+			//ZACH ADDED THE BELOW CODE
+			sprite.sortingLayerID = character.sortingLayerID; 
+			if(AnimationEventReciever._PLAYERANIMATIONSTATUS == PlayerAnimationStatus.IsDodging)
+			{
+				sprite.flipX =  gameObject.GetComponent<SpriteRenderer>().flipX;  
+			}
+			sprite.gameObject.tag = "GhostSprite";
+			//END OF ZACH CHANGES 
+
 			int subMat = (int)Mathf.Floor(i / materialDivisor);
 			sprite.material = subMat <= 0 ? ghostMaterial[0] : ghostMaterial[subMat];
 			ghostList[i].transform.position = new Vector3(ghostList[i].transform.position.x,
 			                                              ghostList[i].transform.position.y,
 			                                              i * 0.0001f);
-			
 		}
 		spacingCounter = 0;
 	}

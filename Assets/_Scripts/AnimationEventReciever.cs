@@ -5,6 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class AnimationEventReciever : MonoBehaviour {
 
+	[Header("Static Variables")]
 	public static bool _isItTheLastFrameOfJumping;
 	public static bool _isItTheLastFrameOfSwinging; 
 	public static bool _isItTheLastFrameOfGroundSliding;
@@ -14,16 +15,18 @@ public class AnimationEventReciever : MonoBehaviour {
 	public static bool _isItTheFirstFrameOfDodging; 
 	public static int _attackCounter; 
 	public static int _aerialAttackCounter;
+	public static PlayerAnimationStatus _PLAYERANIMATIONSTATUS; 
 
 	private SpriteRenderer _playerSprite; 
 	private Transform _swordHolder;
 	private PlayerInput _playerInput; 
 	private PlayerData _playerData; 
 	private PlayerAnimations _playerAnimations; 
-	
+	private GhostSprites _ghostSprites; 
 
 	// Use this for initialization
 	void Start () {
+		_PLAYERANIMATIONSTATUS = PlayerAnimationStatus.Default;
 		_isItTheLastFrameOfJumping = false; 
 		_isItTheLastFrameOfGroundSliding = false; 
 		_isItTheLastFrameOfSwinging = false; 
@@ -42,6 +45,8 @@ public class AnimationEventReciever : MonoBehaviour {
 		_playerInput = GetComponentInParent<PlayerInput>();
 		_playerData = GetComponentInParent<PlayerData>();
 		_playerAnimations = GetComponentInParent<PlayerAnimations>();
+		_ghostSprites = GetComponent<GhostSprites>();
+		_ghostSprites.enabled = false; 
 	}
 
 	void Update()
@@ -66,24 +71,30 @@ public class AnimationEventReciever : MonoBehaviour {
 		_isItTheLastFrameOfSwinging = true;
 	}
 
-	public void IsItTheFirstFrameOfDodging()
+	public void FirstFrameOfGroundSliding()
 	{
-		_isItTheFirstFrameOfDodging = true;
-		_isItTheLastFrameOfDodging = false;
+		_PLAYERANIMATIONSTATUS = PlayerAnimationStatus.IsGroundSliding;
+		_isItTheLastFrameOfGroundSliding = false;
 	}
 
 	public void LastFrameOfGroundSliding()
 	{
+		_PLAYERANIMATIONSTATUS = PlayerAnimationStatus.Default;
 		_isItTheLastFrameOfGroundSliding = true;
 	}
 
-	public void FirstFrameOfGroundSliding()
+	public void IsItTheFirstFrameOfDodging()
 	{
-		_isItTheLastFrameOfGroundSliding = false;
+		_PLAYERANIMATIONSTATUS = PlayerAnimationStatus.IsDodging;
+		_ghostSprites.enabled = true; 
+		_isItTheFirstFrameOfDodging = true;
+		_isItTheLastFrameOfDodging = false;
 	}
 
 	public void IsItTheLastFrameOfDodging()
 	{
+		_PLAYERANIMATIONSTATUS = PlayerAnimationStatus.Default;
+		_ghostSprites.enabled = false; 
 		_isItTheLastFrameOfDodging = true; 
 		_isItTheFirstFrameOfDodging = false;
 	}

@@ -162,7 +162,7 @@ public class PlayerInput : PlayerData
     // Update is called once per frame
     void Update()
     {
-        if (_IgnorePlayerInput == false)
+        if (_IgnorePlayerInput == false && PlayerHealth._PLAYERHEALTHSTATUS != PlayerHealthStatus.IsDying)
         {
             _IsPlayerRunning = IsPlayerRunning();
             _IsPlayerJumping = IsPlayerJumping();
