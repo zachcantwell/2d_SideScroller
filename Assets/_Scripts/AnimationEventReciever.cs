@@ -123,7 +123,6 @@ public class AnimationEventReciever : MonoBehaviour {
 			StopDrawingTheSword();
 		}
 	}
-
 	public void ResetAttackCounterToZero()
 	{
 		_attackCounter = 0;
