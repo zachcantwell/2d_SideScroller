@@ -29,6 +29,23 @@ public class PlayerAnimations : PlayerInput
         InitializePlayerAnimations();
     }
 
+<<<<<<< HEAD
+    private void Start()
+    {
+        //ResetAnimatorBools();
+
+        //TODO The code below works but it makes no sense why it does (the function isnt even spelled correctly)
+       // Invoke("resetAnimator", 1f);
+    }
+
+    private void ResetAnimator()
+    {
+        _Animator.SetTrigger("resetAnimator");
+        _Animator.SetBool("ResetAnimator", true);
+    }
+
+=======
+>>>>>>> parent of 76eaa79... Added Player Spawn Points and the begginnings of Oxygen/Drowning
     void Update()
     {
         AnimationStateController();
@@ -479,6 +496,9 @@ public class PlayerAnimations : PlayerInput
         }
         _Animator.SetBool("isDoubleJumping", false);
         _Animator.SetBool("isJumping", false);
+       // _Animator.SetInteger("groundAttackCounter", 0);
+       // _Animator.SetInteger("airAttackCounter", 0);
+
     }
 
 
